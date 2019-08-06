@@ -31,7 +31,7 @@ Creating your first organizational R package can be daunting however. You may wo
 
 ## Learning objectives
 
-LEARNING_OBJECTIVES
+ADD LEARNING OBJECTIVE(S)
 
 ## Is this course for me?
 
