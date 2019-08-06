@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+My Organization's First R Package
 ================
 
 ### rstudio::conf 2020
