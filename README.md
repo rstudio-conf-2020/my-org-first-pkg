@@ -35,7 +35,11 @@ ADD LEARNING OBJECTIVE(S)
 
 ## Is this course for me?
 
-THREE_QUESTIONS
+This workshop is appropriate for attendees who answer "yes" to these three questions: 
+
+1. Do you work in an organization that uses R as part of its analytical toolchain? 
+2. Could day-to-day data analysis tasks performed in R (at your organization) benefit from a suite of specialized R functions? 
+3. Do you value consistency, quality, and standardization in the R work done in your organization?
 
 ## Prework
 
