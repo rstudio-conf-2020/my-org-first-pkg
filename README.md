@@ -3,7 +3,7 @@ My Organization's First R Package
 
 ### rstudio::conf 2020
 
-by INSTRUCTOR_NAME
+by Rich Iannone and Malcolm Barrett
 
 -----
 
