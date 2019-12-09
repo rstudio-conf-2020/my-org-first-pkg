@@ -1,0 +1,131 @@
+---
+title: "Working with Data in a Database"
+output: html_document
+---
+
+```{r}
+#install.packages("tidyverse)
+#install.packages("dbplyr")
+#install.packages("DBI")
+#install.packages("RSQLite")
+#install.packages("RMariaDB")
+#install.packages("RPostgreSQL")
+#install.packages("nycflights13")
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, paged.print=FALSE)
+
+library(tidyverse)
+library(DBI)
+library(RMariaDB)
+library(RPostgreSQL)
+library(RSQLite)
+```
+
+Working with a database is very convenient with **dplyr** (and the underlying **dbplyr**) along with some database packages. The popular databases MySQL, Postgres, and SQLite are separately supported by the **RMariaDB**, **RPostgreSQL**, and **RSQLite**. The **DBI** package provides the main connection functions and many utility functions for working with databases.
+
+Create an empty SQLite database in memory (using `dbname = ":memory:"`).
+
+```{r create_sqlite_db}
+con <- DBI::dbConnect(RSQLite::SQLite(), dbname = ":memory:")
+```
+
+Copy the `nycflights13::flights` dataset to the connection and name the table `"flights"`.
+
+```{r}
+dplyr::copy_to(
+  dest = con, 
+  df = nycflights13::flights,
+  name = "flights",
+  temporary = FALSE
+)
+```
+
+```{r}
+# Make a reference to the table; this will be the
+# entry point for dplyr operations
+flights_db <- tbl(con, "flights")
+```
+
+Looking at the table shows information about the table source (database name and table name is shown as `table<flights>`). The database properties are shown in the next header line. 
+
+```{r}
+flights_db
+```
+
+This is familiar if you used dplyr on data frames and tibbles.
+
+```{r}
+flights_db %>% head()
+```
+
+But there are some gotchas:
+
+```{r}
+flights_db %>% tail()
+```
+
+Anyway, let's try something simple. Let's summarize some of the data in the table. We'll group by the month and get the average departure delay time for every month. Hmmm... we get another warning. Turns out that database logic is different than R logic, but this is a good warning that explains what is happening and how to be more explicit.
+
+```{r}
+flights_db %>%
+  group_by(month) %>%
+  summarize(avg_dep_delay = mean(dep_delay))
+```
+
+Let's make the correction and save the table.
+
+```{r}
+dep_delay_summary <- 
+  flights_db %>%
+  group_by(month) %>%
+  summarize(avg_dep_delay = mean(dep_delay, na.rm = TRUE))
+
+dep_delay_summary
+```
+
+Let's write this to a CSV file. Er, we can't. Take a look:
+
+```{r}
+dep_delay_summary %>%
+  readr::write_csv("dep_delay_summary.csv")
+```
+
+This data isn't really 'ours', the transformation was in-database. We actually have to collect the data first (then it's ours) and then we can use `write_csv()`.
+
+```{r}
+dep_delay_summary %>%
+  dplyr::collect() %>%
+  readr::write_csv("dep_delay_summary.csv")
+```
+
+Success! This is one of those general workflows when working with database data: do fast operations on the database side, collect the results, then do local things with the data like further modifications that are impossible in a database, plotting, reporting, etc.
+
+WARNING: try not to use `collect()` without first knowing how many rows of data you're collecting! This is *classic* pitfall when working with databases. If you're collecting a summary with just a few groups, you're probably just fine. But we should check the row count before a theoretical `collect()`.
+
+```{r}
+dep_delay_summary %>% nrow()
+```
+
+Nooo! We can't use `nrow()` just like we couldn't use `tail()`. What can we try? It has to be something that can be translated into an SQL query. Two easy things will work `tally()` and `summarize(n = n())` (same as `tally()` really).
+
+```{r}
+dep_delay_summary %>% dplyr::tally()
+```
+
+```{r}
+dep_delay_summary %>% dplyr::summarize(n = n())
+```
+
+This is great! We got a row count and the database did it for us. Seriously, this may come in handy if you see a number in the tens of millions (you'll then at least consider whether data `collect()`ion is worthwhile).
+
+We can show the generated SQL query from the dplyr code used in dep_delay_summary and extended by the two approaches to getting an in-database row count. We just need `dplyr::show_query()`.
+
+```{r}
+dep_delay_summary %>% dplyr::tally() %>% dplyr::show_query()
+cat("------------\n")
+dep_delay_summary %>% dplyr::summarize(n = n()) %>% dplyr::show_query()
+```
+
