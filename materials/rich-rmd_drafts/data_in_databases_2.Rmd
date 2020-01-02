@@ -1,0 +1,95 @@
+---
+title: "Working with Data in a Database, Part II"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(DBI)
+library(RMariaDB)
+```
+
+Databases rule! There is something of a learning curve when first using them but there are some great advantages:
+
+- we know where the data is
+- the data is in one place (in that, this is the source of truth)
+- many people can have simultaneous access to the same data
+- database tables can be updated with new data, with minimal disruption
+- {are there others? let me know}
+
+There are some inevitable downsides to keep in mind
+
+- queries can get stuck in queue sometimes
+- tables can be accidentally deleted or badly altered
+- availability may only be through certain IP addresses
+- some dplyr statements may not work at all (no SQL equivalent)
+- some dplyr statements may create inefficient SQL (this is rarer but it can happen)
+- {others? speak up those with experience}
+
+For this course we have a MySQL database available on AWS. I'll provide the necessary information about how to access it here:
+
+- dbname = 
+- username = 
+- host = 
+- port = 
+
+Let's make a connection to the database (i.e., create a `con` object):
+
+```{r mysql_connection}
+# This is 
+server <- ""
+username <- ""
+port <- ""
+
+con <- 
+  dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = "",
+    username = username,
+    host = server,
+    port = port
+  )
+```
+
+To determine which tables are in the database, we can use the `DBI::dbListTables()` function. 
+
+```{r list_tables}
+
+DBI::dbListTables(con)
+```
+
+
+### FUNCTION FOR PACKAGE: Find out which tables are available in the database
+
+```{r function_data_in_databases_2.1}
+name <- function(args) {
+  function_body
+}
+```
+
+Local test.
+
+```{r function_data_in_databases_2.1_local_test}
+
+```
+
+Move the function over to the package.
+
+
+### FUNCTION FOR PACKAGE: Access to an existing MySQL database
+
+```{r function_data_in_databases_2.2}
+name <- function(args) {
+  function_body
+}
+```
+
+Local test.
+
+```{r function_data_in_databases_2.2_local_test}
+
+```
+
+Move the function over to the package.

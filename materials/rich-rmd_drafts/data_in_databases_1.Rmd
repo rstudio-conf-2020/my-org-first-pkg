@@ -1,27 +1,15 @@
 ---
-title: "Working with Data in a Database"
+title: "Working with Data in a Database, Part I"
 output: html_document
 ---
-
-```{r}
-#install.packages("tidyverse)
-#install.packages("dbplyr")
-#install.packages("DBI")
-#install.packages("RSQLite")
-#install.packages("RMariaDB")
-#install.packages("RPostgreSQL")
-#install.packages("nycflights13")
-```
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, paged.print=FALSE)
 
 library(tidyverse)
 library(DBI)
-library(RMariaDB)
-library(RPostgreSQL)
 library(RSQLite)
+library(nycflights13)
 ```
 
 Working with a database is very convenient with **dplyr** (and the underlying **dbplyr**) along with some database packages. The popular databases MySQL, Postgres, and SQLite are separately supported by the **RMariaDB**, **RPostgreSQL**, and **RSQLite**. The **DBI** package provides the main connection functions and many utility functions for working with databases.
@@ -44,33 +32,32 @@ dplyr::copy_to(
 ```
 
 ```{r}
-# Make a reference to the table; this will be the
-# entry point for dplyr operations
-flights_db <- tbl(con, "flights")
+# Make a reference to the table; this will be the entry point for dplyr operations
+flights_tbl <- dplyr::tbl(con, "flights")
 ```
 
 Looking at the table shows information about the table source (database name and table name is shown as `table<flights>`). The database properties are shown in the next header line. 
 
 ```{r}
-flights_db
+flights_tbl
 ```
 
 This is familiar if you used dplyr on data frames and tibbles.
 
 ```{r}
-flights_db %>% head()
+flights_tbl %>% head()
 ```
 
 But there are some gotchas:
 
 ```{r}
-flights_db %>% tail()
+flights_tbl %>% tail()
 ```
 
 Anyway, let's try something simple. Let's summarize some of the data in the table. We'll group by the month and get the average departure delay time for every month. Hmmm... we get another warning. Turns out that database logic is different than R logic, but this is a good warning that explains what is happening and how to be more explicit.
 
 ```{r}
-flights_db %>%
+flights_tbl %>%
   group_by(month) %>%
   summarize(avg_dep_delay = mean(dep_delay))
 ```
@@ -79,7 +66,7 @@ Let's make the correction and save the table.
 
 ```{r}
 dep_delay_summary <- 
-  flights_db %>%
+  flights_tbl %>%
   group_by(month) %>%
   summarize(avg_dep_delay = mean(dep_delay, na.rm = TRUE))
 
@@ -103,7 +90,7 @@ dep_delay_summary %>%
 
 Success! This is one of those general workflows when working with database data: do fast operations on the database side, collect the results, then do local things with the data like further modifications that are impossible in a database, plotting, reporting, etc.
 
-WARNING: try not to use `collect()` without first knowing how many rows of data you're collecting! This is *classic* pitfall when working with databases. If you're collecting a summary with just a few groups, you're probably just fine. But we should check the row count before a theoretical `collect()`.
+WARNING: try not to use `collect()` without first knowing how many rows of data you're collecting! This is a *classic* pitfall when working with databases. If you're collecting something like a summary with just a few groups, you're probably just fine. But we should check the row count before a theoretical `collect()`.
 
 ```{r}
 dep_delay_summary %>% nrow()
@@ -115,8 +102,15 @@ Nooo! We can't use `nrow()` just like we couldn't use `tail()`. What can we try?
 dep_delay_summary %>% dplyr::tally()
 ```
 
+
 ```{r}
 dep_delay_summary %>% dplyr::summarize(n = n())
+```
+
+There is another **dplyr** function that will work. Can you find out what it is? (I'll wait.)
+
+```{r}
+dep_delay_summary %>% dplyr::function()
 ```
 
 This is great! We got a row count and the database did it for us. Seriously, this may come in handy if you see a number in the tens of millions (you'll then at least consider whether data `collect()`ion is worthwhile).
@@ -129,3 +123,20 @@ cat("------------\n")
 dep_delay_summary %>% dplyr::summarize(n = n()) %>% dplyr::show_query()
 ```
 
+### FUNCTION FOR PACKAGE: Access to the flights dataset in SQLite (in-memory)
+
+Let's create a function (for our package) that gives us a ready-to-experiment-with tbl object that is based on the `nycflights13::flights` dataset (in SQLite).
+
+```{r function_data_in_databases_1.1}
+name <- function(args) {
+  function_body
+}
+```
+
+After the function is created, let's test it locally to make sure it works.
+
+```{r function_data_in_databases_1.1_local_test}
+
+```
+
+After the test is successful, let's move the function over to the package.
