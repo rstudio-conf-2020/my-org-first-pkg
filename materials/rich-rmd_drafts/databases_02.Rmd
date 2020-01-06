@@ -56,7 +56,6 @@ con <-
 To determine which tables are in the database, we can use the `DBI::dbListTables()` function. 
 
 ```{r list_tables}
-
 DBI::dbListTables(con)
 ```
 
