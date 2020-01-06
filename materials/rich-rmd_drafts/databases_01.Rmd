@@ -16,6 +16,8 @@ library(nycflights13)
 
 Working with a database is very convenient with **dplyr** (and the underlying **dbplyr**) along with some database packages. The popular databases MySQL, Postgres, and SQLite are separately supported by the **RMariaDB**, **RPostgreSQL**, and **RSQLite**. The **DBI** package provides the main connection functions and many utility functions for working with databases.
 
+<<Presentation - Databases>>
+
 Create an empty SQLite database in memory (using `dbname = ":memory:"`).
 
 ```{r create_sqlite_db}
