@@ -1,0 +1,15 @@
+---
+title: "4_standardized_reporting_00"
+output: html_document
+---
+
+## Building Package Functions for Standardizing Reporting
+
+Learning objectives
+
+- Standardization is actually advantageous in organizations
+- When to use standardized plots and tables
+- Writing package functions that take time-series data and create standardized plots and tables
+- Just enough standardization... we can also have some variation, maybe some flair
+- Using standardized plots and tables in periodic reports (and, writing a function that does that)
+- Standardized plots and tables need standardized data, so, we'll make a function that creates that data (and let's learn about **cron** for sake of automating things)
