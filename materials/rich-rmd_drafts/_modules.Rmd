@@ -40,11 +40,11 @@ How much do you want to know about the management and communication around an in
 pkg_management <- 5
 ```
 
-How much do you want to know about designing functions that standardize plots for reporting needs?
+How much do you want to know about designing functions that standardize tables and plots for reporting needs?
 
 ```{r}
 # Scale from 1 to 10
-standardized_plots <- 5
+standardized_reporting <- 5
 ```
 
 How much do you want to know about package testing and overall package quality?
