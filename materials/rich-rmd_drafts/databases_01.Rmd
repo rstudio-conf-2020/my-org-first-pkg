@@ -1,5 +1,5 @@
 ---
-title: "Working with Data in a Database, Part I"
+title: "databases_01"
 output: html_document
 ---
 
@@ -11,6 +11,8 @@ library(DBI)
 library(RSQLite)
 library(nycflights13)
 ```
+
+## Working with Data in a Database, Part I
 
 Working with a database is very convenient with **dplyr** (and the underlying **dbplyr**) along with some database packages. The popular databases MySQL, Postgres, and SQLite are separately supported by the **RMariaDB**, **RPostgreSQL**, and **RSQLite**. The **DBI** package provides the main connection functions and many utility functions for working with databases.
 
@@ -32,7 +34,8 @@ dplyr::copy_to(
 ```
 
 ```{r}
-# Make a reference to the table; this will be the entry point for dplyr operations
+# Make a reference to the table.
+# This will be the entry point for dplyr operations.
 flights_tbl <- dplyr::tbl(con, "flights")
 ```
 

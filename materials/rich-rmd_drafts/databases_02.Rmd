@@ -1,5 +1,5 @@
 ---
-title: "Working with Data in a Database, Part II"
+title: "databases_02"
 output: html_document
 ---
 
@@ -10,6 +10,8 @@ library(tidyverse)
 library(DBI)
 library(RMariaDB)
 ```
+
+## Working with Data in a Database, Part II
 
 Databases rule! There is something of a learning curve when first using them but there are some great advantages:
 
