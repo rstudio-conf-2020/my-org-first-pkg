@@ -3,10 +3,6 @@ title: "databases_00"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, paged.print=FALSE)
-```
-
 ## Working with Data in a Database
 
 Learning objectives
