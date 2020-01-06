@@ -13,7 +13,7 @@ library(tidyverse)
 
 Making an R package for your organization can either be a short process or a long process. Most of the time it'll be a long, yet enjoyable, process. One hopes that data users in the organization will see the value of the package and thus more potential uses (and additions).
 
-We can only cover so much in a day. Day 1 gave us all the tools to generate a package that has all the necessary components in place. If we keep following all of the tasks of adding functions, documenting, testing, etc., then we'll have a healthy and usable framework. Now, we just ideas for useful functions. 
+We can only cover so much in a day. Day 1 gave us all the tools to generate a package that has all the necessary components in place. If we keep following all of the tasks of adding functions, documenting, testing, etc., then we'll have a healthy and usable framework. Now, we just ideas for useful functions.
 
 Everybody's needs are different though! What kind of organization are you in? What kind will you be in, in the future? What tools will the organization use? Files available on a file system or a database? What does the data department value? Is the data department just you? Really, every situation is different.
 
@@ -26,11 +26,25 @@ How much do you want to know about databases and easier access to them through t
 databases <- 5
 ```
 
-How much do you want to know about the communication and management of an internal R package?
+How much do you want to know about designing functions for reporting KPIs and getting data segments?
 
 ```{r}
 # Scale from 1 to 10
-communication <- 5
+kpis_segmentation <- 5
+```
+
+How much do you want to know about the management and communication around an internal R package?
+
+```{r}
+# Scale from 1 to 10
+management <- 5
+```
+
+How much do you want to know about designing functions that standardize plots for reporting needs?
+
+```{r}
+# Scale from 1 to 10
+standardized_plots <- 5
 ```
 
 How much do you want to know about package testing and overall package quality?
@@ -53,5 +67,4 @@ How much do you want to know about data quality and how the internal package can
 # Scale from 1 to 10
 data_quality <- 5
 ```
-
 
