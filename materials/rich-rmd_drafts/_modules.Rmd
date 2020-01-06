@@ -37,7 +37,7 @@ How much do you want to know about the management and communication around an in
 
 ```{r}
 # Scale from 1 to 10
-management <- 5
+pkg_management <- 5
 ```
 
 How much do you want to know about designing functions that standardize plots for reporting needs?
