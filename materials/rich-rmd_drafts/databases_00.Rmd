@@ -1,0 +1,22 @@
+---
+title: "databases_00"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, paged.print=FALSE)
+```
+
+## Working with Data in a Database
+
+Learning objectives
+
+- Understanding the value of databases over flat files
+- Which databases are available and (easily) accessible by R?
+- Which packages are required? Which additional libraries are required.
+- How do we connect to a database? Examples with SQLite and MySQL
+- Manipulating database data with dplyr and collecting results
+- Finding out which tables are in a database
+- Creating a function to enable access to a database (i.e., creating a `con` object)
+- How do we create a database? How do add tables and table data?
+- Creating a function to update a database table
