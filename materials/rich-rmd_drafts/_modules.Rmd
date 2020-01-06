@@ -1,0 +1,57 @@
+---
+title: "Modules for Day 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+## Modules as Chunks of Learning
+
+Making an R package for your organization can either be a short process or a long process. Most of the time it'll be a long, yet enjoyable, process. One hopes that data users in the organization will see the value of the package and thus more potential uses (and additions).
+
+We can only cover so much in a day. Day 1 gave us all the tools to generate a package that has all the necessary components in place. If we keep following all of the tasks of adding functions, documenting, testing, etc., then we'll have a healthy and usable framework. Now, we just ideas for useful functions. 
+
+Everybody's needs are different though! What kind of organization are you in? What kind will you be in, in the future? What tools will the organization use? Files available on a file system or a database? What does the data department value? Is the data department just you? Really, every situation is different.
+
+Let's take a survey of what you're interested in learning. Here we go.
+
+How much do you want to know about databases and easier access to them through the R package?
+
+```{r}
+# Scale from 1 to 10
+databases <- 5
+```
+
+How much do you want to know about the communication and management of an internal R package?
+
+```{r}
+# Scale from 1 to 10
+communication <- 5
+```
+
+How much do you want to know about package testing and overall package quality?
+
+```{r}
+# Scale from 1 to 10
+pkg_testing <- 5
+```
+
+How much do you want to know about package documentation and ease-of-use?
+
+```{r}
+# Scale from 1 to 10
+documentation <- 5
+```
+
+How much do you want to know about data quality and how the internal package can help with that?
+
+```{r}
+# Scale from 1 to 10
+data_quality <- 5
+```
+
+
