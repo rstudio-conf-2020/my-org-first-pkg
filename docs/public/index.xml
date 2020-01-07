@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Organization&#39;s First R Package Workshop</title>
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <description>My Organization&#39;s First R Package Workshop</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 06 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>My Organization&#39;s First R Package Workshop</title>
+      <link>/</link>
+    </image>
+    
+    <item>
+      <title>Cloud setup</title>
+      <link>/pre/cloud/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/pre/cloud/</guid>
+      <description>&lt;h2 id=&#34;work-in-the-&#34;&gt;Work in the ☁&lt;/h2&gt;
+&lt;p&gt;For this option, you will:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Work&lt;/strong&gt; in a pre-configured, web-based RStudio IDE instance provided by &lt;a href=&#34;http://rstudio.cloud&#34;&gt;RStudio Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;why-would-i-choose-this-option&#34;&gt;Why would I choose this option?&lt;/h2&gt;
+&lt;p&gt;You just want this course to work without worrying about preparation on your local computer. You may not have time to do all the &lt;a href=&#34;../local&#34;&gt;local setup&lt;/a&gt;, or you may not wish to modify your local install to upgrade right now.&lt;/p&gt;
+&lt;h2 id=&#34;what-do-i-need-to-do-before-the-workshop&#34;&gt;What do I need to do before the workshop?&lt;/h2&gt;
+&lt;p&gt;Not much! We will provide a link to the pre-configured RStudio Cloud workspace. You will need to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bring a laptop with the ability to access the internet, and&lt;/li&gt;
+&lt;li&gt;bring your laptop charger.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;will-i-be-able-to-build-any-r-packages-i-create&#34;&gt;Will I be able to build any R packages I create?&lt;/h2&gt;
+&lt;p&gt;Yes! All the tools for R package development will be at your disposal, including building packages that can be used.&lt;/p&gt;
+&lt;h2 id=&#34;will-i-be-able-to-save-my-work&#34;&gt;Will I be able to save my work?&lt;/h2&gt;
+&lt;p&gt;Absolutely! You can export any files you work on during the workshop out of RStudio Cloud and save them locally on your computer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install R packages</title>
+      <link>/pre/packages/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/pre/packages/</guid>
+      <description>&lt;p&gt;You can download all the R packages we will need as well as download the course materials using the course R package, which you can install from GitHub using the remotes package.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# if needed:
+# install.packages(&amp;quot;remotes&amp;quot;)
+
+remotes::install_github(&amp;quot;malcolmbarrett/org.first.r.pkg&amp;quot;)
+org.first.r.pkg::install_workshop(&amp;quot;path/to/download/materials&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Installing the workshop materials will open an RStudio project containing all the materials we&#39;ll use.&lt;/p&gt;
+&lt;p&gt;If you prefer to work with the materials via git, you can just install course package without running &lt;code&gt;install_workshop()&lt;/code&gt;. You can find the materials on the &lt;a href=&#34;https://github.com/rstudio-conf-2020/my-org-first-pkg&#34;&gt;course GitHub repository&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install/upgrade software</title>
+      <link>/pre/system/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/pre/system/</guid>
+      <description>&lt;p&gt;In this workshop, we will use R and &lt;a href=&#34;https://www.rstudio.com/products/rstudio/&#34;&gt;RStudio&lt;/a&gt;. RStudio is not required but recommended. It makes package development very easy, and we will show many keyboard shortcuts and other tricks using RStudio.&lt;/p&gt;
+&lt;h2 id=&#34;install-r&#34;&gt;Install R&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;a href=&#34;https://cran.rstudio.com/&#34;&gt;recent version of R&lt;/a&gt; (&amp;gt;= 3.6.1 &amp;ldquo;Action of the Toes&amp;rdquo;) is recommended. You can check your version from the R Console:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;getRversion()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &#39;3.6.1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;install-rstudio&#34;&gt;Install RStudio&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34;&gt;RStudio&lt;/a&gt; (&amp;gt;= 1.2.5033)  is recommended.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;upgrading-your-system&#34;&gt;Upgrading your system&lt;/h2&gt;
+&lt;p&gt;For more help installing or upgrading R and RStudio, please read through these links:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://happygitwithr.com/install-r-rstudio.html&#34;&gt;Chapter 6 in &lt;strong&gt;Happy Git with R&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://whattheyforgot.org/maintaining-r.html&#34;&gt;Maintaining R from &lt;strong&gt;What They Forgot to Teach You About R&lt;/strong&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;See &lt;a href=&#34;https://whattheyforgot.org/maintaining-r.html#how-to-transfer-your-library-when-updating-r&#34;&gt;&amp;ldquo;How to transfer your library when updating R&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Local setup</title>
+      <link>/pre/local/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/pre/local/</guid>
+      <description>&lt;h2 id=&#34;work-on-your-own-&#34;&gt;Work on your own 💻&lt;/h2&gt;
+&lt;p&gt;For this option, you will:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt; your R packages locally on your laptop using the RStudio IDE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This option will require more setup time before the workshop, but will allow you to be able to work from your local setup using R and the RStudio IDE.&lt;/p&gt;
+&lt;h2 id=&#34;why-would-i-choose-this-option&#34;&gt;Why would I choose this option?&lt;/h2&gt;
+&lt;p&gt;You may not want to do your work on the cloud, and would strongly prefer to use your own machine. Note that while we will have a TA for this workshop, there is a limit to how much we can help with issues arising from running outdated versions of R, the RStudio IDE, or packages. So, if you choose this option, please carefully follow all the setup instructions listed below. If you run into problems with your local setup, we may ask you to switch to a &lt;a href=&#34;../cloud&#34;&gt;cloud setup&lt;/a&gt; during the workshop so that you can enjoy the workshop and get the most out of it.&lt;/p&gt;
+&lt;h2 id=&#34;what-do-i-need-to-do-before-the-workshop&#34;&gt;What do I need to do before the workshop?&lt;/h2&gt;
+&lt;p&gt;You&#39;ll need to follow these setup instructions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;../system/&#34;&gt;Install/upgrade software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../packages/&#34;&gt;Install R packages and Course Materials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../github&#34;&gt;Install Git &amp;amp; GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>/pre/reading/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/pre/reading/</guid>
+      <description>&lt;p&gt;We don&#39;t expect you to have experience developing R packages (whether internal or on CRAN), but if you&#39;d like to explore some resources prior to the workshop, here are a few we recommend.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://r-pkgs.had.co.nz/&#34;&gt;R Packages&lt;/a&gt;, the ultimate introduction to making R Packages.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r-pkgs.org/&#34;&gt;Also keep an eye on the upcoming second edition&lt;/a&gt;. You may be particularly interested the second chapter, &lt;a href=&#34;https://r-pkgs.org/whole-game.html&#34;&gt;The Whole Game&lt;/a&gt;, a guided tour of creating a package from scratch. The second edition introduces newer packages like usethis.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://emilyriederer.netlify.com/post/resource-roundup-r-in-industry-edition/&#34;&gt;Resource Round-Up: R in Industry Edition&lt;/a&gt; by &lt;a href=&#34;https://emilyriederer.netlify.com&#34;&gt;Emily Riederer&lt;/a&gt;, an excellent review of internal R packages. (Make sure to check out Emily&#39;s talk on R Markdown workflows during the conference!)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install Git &amp; GitHub</title>
+      <link>/pre/github/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/pre/github/</guid>
+      <description>&lt;p&gt;To get the most out of this workshop, we will typically work within &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects&#34;&gt;RStudio Projects&lt;/a&gt; (&lt;code&gt;.Rproj&lt;/code&gt;) and encourage you to use Git (via GitHub using RStudio) for version control. You can use RStudio as the Git GUI, so there is no need to install a separate GUI unless you have your own favorite. If you would like to use GitHub during the workshop, please follow the steps below from the online book &lt;a href=&#34;https://happygitwithr.com/&#34;&gt;Happy Git with R&lt;/a&gt;:&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/github-acct.html&#34;&gt;Register a GitHub account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/install-git.html&#34;&gt;Install Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/hello-git.html&#34;&gt;Introduce yourself to Git&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;connect-git-github-rstudio&#34;&gt;Connect Git, GitHub, RStudio&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/push-pull-github.html&#34;&gt;Connect to GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Do one of the following:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/credential-caching.html&#34;&gt;Cache credentials for HTTPS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/ssh-keys.html&#34;&gt;Set up keys for SSH&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/rstudio-git-github.html&#34;&gt;Connect RStudio to Git and GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;test-drive&#34;&gt;Test-drive&lt;/h2&gt;
+&lt;p&gt;We encourage you to follow a &lt;a href=&#34;https://happygitwithr.com/new-github-first.html&#34;&gt;&amp;ldquo;New project, GitHub first&amp;rdquo; workflow&lt;/a&gt;. This means that if you want to work locally, you&#39;ll want to be comfortable doing the following steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/new-github-first.html#make-a-repo-on-github-1&#34;&gt;Make a repo on GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/new-github-first.html#new-rstudio-project-via-git-clone&#34;&gt;Make a new RStudio project via git clone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/new-github-first.html#make-local-changes-save-commit-1&#34;&gt;Make local changes, save, commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://happygitwithr.com/new-github-first.html#push-your-local-changes-to-github&#34;&gt;Push your local changes to GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/instructors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/instructors/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

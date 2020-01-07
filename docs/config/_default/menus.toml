@@ -1,0 +1,42 @@
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
+
+[[main]]
+  name = "Pre-Workshop"
+  url = "pre/" 
+  weight = 1
+
+[[main]]
+  name = "Agenda"
+  url = "workshop/"
+  weight = 2
+
+[[main]]
+  name = "Materials and Slides"
+  url = "materials/"
+  weight = 4
+
+[[main]]
+  name = "Post-Workshop"
+  url = "post/"
+  weight = 5
+  
+[[main]]
+  name = "Instructors"
+  url = "instructors/"
+  weight = 6
+  
+[[main]]
+  pre = "<i class=\"fab fa-github fa-lg\"></i>"
+  name = ""
+  url = "https://github.com/rstudio-conf-2020/my-org-first-pkg"
+  weight = 7
+
+# Link to a PDF of your resume/CV from the menu.
+# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
+# [[main]]
+#    name = "CV"
+#    url = "files/cv.pdf"
+#    weight = 70

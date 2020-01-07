@@ -1,0 +1,19 @@
+---
+title: Au revoir!
+author: ''
+date: "`r Sys.Date()`"
+slug: postworkshop
+categories: []
+tags: []
+menu:
+  post:
+    name: Post-workshop
+    weight: 1
+toc: yes
+type: docs
+---
+
+## Follow up
+
+- Feel free to post any issues on the [workshop repo](https://github.com/rstudio-conf-2020/my-org-first-pkg) or contact us about any questions or comments regarding the workshop.
+- And please fill out the post-workshop survey you received in your email.
