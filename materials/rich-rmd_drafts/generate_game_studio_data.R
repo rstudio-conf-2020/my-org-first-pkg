@@ -547,13 +547,14 @@ purchase_tbl <- purchases_for_year(purchases_year_df = purchases_year, user_id_d
 n_session_ids <- purchase_tbl$date_time %>% unique() %>% length()
 session_ids <- replicate(n_session_ids, paste(sample(letters, 8, replace = FALSE), collapse = ""))
 
+
 purchase_tbl <-
   purchase_tbl %>%
   dplyr::inner_join(
     iaps %>% dplyr::select(name, size, type, iap_price),
     by = c("name", "size")
   ) %>%
-  dplyr::mutate(session_id = session_ids[as.numeric(factor(date_time))]) %>%
+  dplyr::mutate(session_id = paste0(substr(user_id, 1, 5), "_", session_ids[as.numeric(factor(date_time))])) %>%
   dplyr::mutate(date = as.character(date)) %>%
   dplyr::select(user_id, session_id, dplyr::everything()) %>%
   dplyr::select(-date_time) %>%
@@ -620,13 +621,11 @@ ad_view_tbl <-
   dplyr::rename(price = iap_price)
 
 #ad_view_tbl <- ad_view_tbl %>% dplyr::mutate(session_id = paste0(substr(user_id, 1, 5), "_", session_id))
+#purchase_tbl <- purchase_tbl %>% dplyr::mutate(session_id = paste0(substr(user_id, 1, 5), "_", session_id))
 
 revenue_tbl <-
   dplyr::bind_rows(purchase_tbl %>% dplyr::rename(price = iap_price), ad_view_tbl) %>%
-  arrange(date, time, user_id)
-
-revenue_tbl <- 
-  revenue_tbl %>%
+  dplyr::arrange(date, time, user_id) %>%
   dplyr::left_join(user_id_df, by = "user_id") %>%
   dplyr::left_join(country_metadata, by = c("country" = "country_name")) %>%
   dplyr::mutate(revenue = case_when(
@@ -724,5 +723,5 @@ revenue_tbl %>%
   dplyr::summarize(n = n()) %>%
   dplyr::arrange(desc(n))
 
-sum(revenue_tbl$price) # 30797881
+sum(revenue_tbl$price, na.rm = TRUE) # 30311248
 length(unique(revenue_tbl$user_id)) # 743306
