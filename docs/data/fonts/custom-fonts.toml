@@ -1,0 +1,15 @@
+# Font style metadata
+name = "teach-shiny"
+
+# Optional Google font URL
+google_fonts = "Open+Sans:300|Raleway|Fira+Mono"
+
+# Font families
+heading_font = "Open Sans"
+body_font = "Open Sans"
+nav_font = "Raleway"
+mono_font = "Fira Mono"
+
+# Font size
+font_size = "18"
+font_size_small = "14"

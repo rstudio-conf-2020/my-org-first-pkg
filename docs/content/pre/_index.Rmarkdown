@@ -1,0 +1,48 @@
+---
+title: Welcome
+author: ''
+date: "`r Sys.Date()`"
+slug: preworkshop
+categories: []
+tags: []
+menu:
+  pre:
+    name: Pre-workshop
+    weight: 1
+toc: yes
+type: docs
+---
+
+This site is the official home of all information related to the My Organization's First R Package Workshop in San Francisco, CA (January 27-28). This is the place to find all the information you'll need to get the most out of this workshop, including software, R packages, and additional resources. 
+
+## Orientation
+
+Please use the menus to the left to guide you through all the workshop set-up instructions, and notice the menu on the right with links for:
+ 
+<ul class="fa-ul">
+    <li><i class="fa-li fas fa-question-circle"></i><a href="https://community.rstudio.com/" target="_blank">Get help before the workshop</a></li>
+    <li><i class="fa-li fas fa-bug"></i><a href="https://github.com/rstudio-conf-2020/my-org-first-pkg/issues" target="_blank">Report issues</a></li>
+    <li><i class="fa-li fas fa-edit"></i><a href="https://github.com/rstudio-conf-2020/my-org-first-pkg/tree/master/docs" target="_blank">Suggest an edit</a></li>
+</ul>
+
+We look forward to meeting and working with you all!
+
+## Choose a setup
+
+There are two options for participating in this workshop:
+
+:cloud: [Cloud setup: work in the cloud](cloud) Work in a pre-configured, web-based RStudio IDE instance provided by [RStudio Cloud](http://rstudio.cloud).
+
+:computer: [Local setup: work on your own laptop](local) Work locally on your laptop using the RStudio IDE.
+
+Click on the links above (which take you to menu items in the left sidebar) to find out more about each of these setup options.
+
+## Teaching team
+
+**Instructor:** Richard Iannone, RStudio <a href="https://randr.rocks/" target="_blank"><i class="fas fa-link"></i></a> <a href="https://github.com/rich-iannone" target="_blank"><i class="fab fa-github"></i></a> <a href="https://twitter.com/riannone" target="_blank"><i class="fab fa-twitter"></i></a> 
+
+**Instructor:** Malcolm Barrett, University of Southern California <a href="https:/malco.io" target="_blank"><i class="fas fa-link"></i></a> <a href="https://github.com/malcolmbarrett" target="_blank"><i class="fab fa-github"></i></a> <a href="https://twitter.com/malco_barrett" target="_blank"><i class="fab fa-twitter"></i></a> 
+
+**TA:** ________ <a href="http://" target="_blank"><i class="fas fa-link"></i></a> <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a> <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+
+**TA:** ________ <a href="http://" target="_blank"><i class="fas fa-link"></i></a> <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a> <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>

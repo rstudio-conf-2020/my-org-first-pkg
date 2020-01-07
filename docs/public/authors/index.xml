@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | My Organization&#39;s First R Package Workshop</title>
+    <link>/authors/</link>
+      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Authors</title>
+      <link>/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/amy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/amy/</guid>
+      <description>&lt;p&gt;fsdfdsfsdfsdfsdfsdfsdfsdfsdfsd&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/greg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/greg/</guid>
+      <description>&lt;p&gt;hhhjsdjkf;sdlkfls;dfksdl;fksdl;fksdl;fksdl;fksd&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/malcolm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/malcolm/</guid>
+      <description>&lt;p&gt;Malcolm Barrett is an R developer and a PhD student in Epidemiology at the University of Southern California. His work in public health has spanned on-ground clinical education and research for clinical and cohort studies. Previously, he was an intern at RStudio, and he served two years in AmeriCorps at federally-qualified health centers in Michigan and New York City.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/rich/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/rich/</guid>
+      <description>&lt;p&gt;Rich is a software engineer that enjoys working with R. He likes to create R packages that help people to accomplish things. While Rich very clearly digs R, he enjoys other things as well! Examples include: playing and listening to music, reading books, watching films, meeting up with friends, and wandering through the many valleys and ravines of the Greater Toronto Area.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/samantha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/samantha/</guid>
+      <description>&lt;p&gt;dlfihsdjkfhsdjkfsdjkfhsfd&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

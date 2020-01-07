@@ -1,0 +1,85 @@
+---
+title: Agenda
+author: ''
+date: "`r Sys.Date()`"
+slug: workshop
+categories: []
+tags: []
+menu:
+  workshop:
+    name: Agenda
+    weight: 1
+toc: yes
+type: docs
+---
+
+
+## Day 1
+
+### Morning
+
+Coffee break between 10:30 - 11:00.
+
+#### > 00 - [Welcome]()
+
+#### > 01 - [Setup packages]()
+
+`r emo::ji("dice")` The Whole Game  
+`r emo::ji("package")` Creating new packages  
+`r emo::ji("megaphone")` The DESCRIPTION file
+
+#### > 02 - [Write Code]()
+
+`r emo::ji("pen")` Write R code  
+`r emo::ji("hammer")` Load functions and build the package  
+`r emo::ji("handshake")` Use functions from other packages
+
+#### > 03 - [Document]()
+
+`r emo::ji("document")`Use roxygen2 to document your code  
+`r emo::ji("help")`Create help files  
+`r emo::ji("ship")` Export functions.
+
+
+
+### 12:30 - 13:30 - Lunch
+
+### Afternoon
+
+Coffee break between 15:00 - 15:30.
+
+#### > 04 - [Test]()
+
+`r emo::ji("science")` Test your code with testthat, devtools, and and R CMD check.
+
+#### > 05 - [Teach]()
+
+`r emo::ji("users")` Help users take advantage of your package by writing vignettes and examples.
+
+#### > 06 - [Add data and files]()
+
+`r emo::ji("file")` Leverage the R package structure to store data, R Markdown templates, scripts, and other types of files.
+
+#### > 07 - Wrap up
+
+## Day 2
+
+### Morning
+
+Coffee break between 10:30 - 11:00.
+
+#### > 01 - 
+#### > 02 - 
+#### > 03 - 
+
+### 12:30 - 13:30 - Lunch
+
+### Afternoon
+
+Coffee break between 15:00 - 15:30.
+
+#### > 04 -
+#### > 05 -
+#### > 06 - 
+#### > 07 - Wrap up
+

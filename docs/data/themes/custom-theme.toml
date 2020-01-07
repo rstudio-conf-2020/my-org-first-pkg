@@ -1,0 +1,25 @@
+# Theme metadata
+name = "teach-shiny"
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = "#4c83b6"
+primary_light = "#4c83b6"
+primary_dark = "#4c83b6"
+
+# Links
+link = "#4c83b6"
+link_hover = "#42709b"
+
+# Menu
+menu_primary = "#fff"
+menu_text = "#4c83b6"
+menu_text_active = "#5a9ddb"
+menu_title = "#4c83b6"
+
+# Backgrounds
+background = "#fff"
+home_section_odd = "#fff"
+home_section_even = "#fff"
