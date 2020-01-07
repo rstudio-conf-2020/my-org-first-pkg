@@ -47,11 +47,11 @@ How much do you want to know about designing functions that standardize tables a
 standardized_reporting <- 5
 ```
 
-How much do you want to know about package testing and overall package quality?
+How much do you want to know about overall package quality?
 
 ```{r}
 # Scale from 1 to 10
-pkg_testing <- 5
+pkg_quality <- 5
 ```
 
 How much do you want to know about package documentation and ease-of-use?
