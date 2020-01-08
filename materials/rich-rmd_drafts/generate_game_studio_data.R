@@ -707,9 +707,53 @@ user_tbl <-
     first_iap, platform, device, acquired, country
   )
 
+daily_users_tbl <-
+  revenue_tbl %>%
+  dplyr::select(user_id, session_id, date, time, type, revenue) %>%
+  dplyr::mutate(iap_bought = ifelse(type == "ad", 0, 1)) %>%
+  dplyr::mutate(ad_view = ifelse(type == "ad", 1, 0)) %>%
+  dplyr::mutate(ad_rev = ifelse(type == "ad", revenue, 0)) %>%
+  dplyr::mutate(iap_rev = ifelse(type != "ad", revenue, 0)) %>%
+  dplyr::group_by(user_id) %>%
+  dplyr::arrange(date, time) %>%
+  dplyr::mutate(
+    iap_count = cumsum(iap_bought),
+    ad_count = cumsum(ad_view),
+    iap_revenue = cumsum(iap_rev),
+    ad_revenue = cumsum(ad_rev),
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(-type, -revenue, -iap_bought, -ad_view, -iap_rev, -ad_rev) %>%
+  dplyr::mutate(total_revenue = iap_revenue + ad_revenue) %>%
+  dplyr::mutate(
+    session_length = replicate(
+      n(),
+      sample(
+        seq(1, 40, 0.2),
+        size = 1,
+        prob = dgamma(x = seq(1, 40, 0.2), shape = 2, rate = 0.15))
+    )
+  ) %>%
+  dplyr::mutate(session = 1) %>%
+  dplyr::group_by(user_id) %>%
+  dplyr::arrange(date, time) %>%
+  dplyr::mutate(
+    total_sessions = cumsum(session),
+    total_time = cumsum(session_length)) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(-session) %>%
+  dplyr::mutate(is_customer = ifelse(iap_count > 0, TRUE, FALSE)) %>%
+  dplyr::select(
+    user_id, session_id, date, time, total_sessions, total_time,
+    is_customer, iap_revenue, ad_revenue, total_revenue, iap_count, ad_count
+  ) %>%
+  dplyr::arrange(date, time, user_id)
+
+
 # Save these as RDS files
 saveRDS(revenue_tbl, "revenue_tbl")
 saveRDS(user_tbl, "user_tbl")
+saveRDS(daily_users_tbl, "daily_users_tbl")
 
 #
 # Checks of the data
