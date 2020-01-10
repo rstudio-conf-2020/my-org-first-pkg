@@ -1,11 +1,11 @@
 ---
-title: "2_kpis_segmentation_00"
+title: "02_00_kpis_segmentation"
 output: html_document
 ---
 
 ## Creating KPI-type Functions and Doing Segmentation
 
-Learning objectives
+Outline of Module
 
 - What is a KPI? Why do we use them so much?
 - Segmentation: it's really just filtering data
