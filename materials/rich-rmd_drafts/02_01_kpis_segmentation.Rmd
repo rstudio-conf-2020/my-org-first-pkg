@@ -1,0 +1,123 @@
+---
+title: "02_01_kpis_segmentation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, paged.print=FALSE)
+library(tidyverse)
+library(lubridate)
+```
+
+## Defining a few useful KPIs
+
+There are a few KPIs that we need on a continual basis. These are DAU, MAU, DAC, and ARPU. Here are some definitions:
+
+- DAU: daily active users
+- MAU: monthly active users
+- DAC: daily active customers
+- ARPU: average revenue per user
+
+Let's use the `daily_users` table to make functions that get us each of these KPIs. First, we need access to the table in the database:
+
+```{r}
+daily_users <- "<<FUNCTION>>"
+```
+
+We can define the daily active users (DAU) for a specific date.
+
+```{r calculate_dau_for_date}
+
+date <- "2015-02-04"
+
+daily_users %>%
+  filter(date == {{ date }}) %>%
+  select(..variable_name..) %>%
+  distinct() %>%
+  count() %>%
+  pull(n)
+```
+
+Let's now get the monthly active users (MAU) for a specific month in 2015. It's the number of users that appeared during a specific month.
+
+```{r calculate_mau_for_month}
+
+year <- 2015
+month <- 2
+
+# Get a vector of character-based dates
+days_in_month <- 
+  seq(
+    from = make_date(year = year, month = month, day = 1L),
+    to = (make_date(year = year, month = month + 1, day = 1L) - days(1)),
+    by = 1
+  ) %>%
+  as.character()
+
+daily_users %>%
+  filter(date %in% {{ ..variable_name.. }}) %>%
+  select(..variable_name..) %>%
+  distinct() %>%
+  count() %>%
+  pull(n)
+```
+
+The DAC is the count of daily active *customers*. Who qualifies as a customer? They must have spent some amount of money during or before the day that's considered.
+
+Now we have to *segment* our user. It's really just another word for filtering. In this case, we need to first segment the users that are customers on the specific `date`.
+
+```{r calculate_dac_for_date}
+
+date <- "2015-02-04"
+
+daily_users %>%
+  filter(date == {{ date }}) %>%
+  filter(is_customer == ..value..) %>% 
+  select(user_id) %>%
+  distinct() %>%
+  count() %>%
+  pull(n)
+```
+
+The ARPU, the average revenue per user, can calculated where we consider just the IAP revenue, just the ad revenue, or both. Most of the time we care just for the IAP revenue. This is usually measured over some sort of time span, like over the last 30 days, the last 60 days, over the period between product releases. Let's calculate the 30 days leading up and including `2015-02-04`.
+
+```{r calculate_arpu30_up_to_date}
+
+date <- "2015-02-04"
+days_back <- 30
+
+days_in_period <- 
+  seq(
+    from = as.Date(date) - days(days_back),
+    to = as.Date(date),
+    by = 1
+  ) %>% as.character()
+
+dau_period <-
+  daily_users %>%
+  filter(date %in% {{ days_in_period }}) %>%
+  select(user_id) %>%
+  distinct() %>%
+  count() %>%
+  pull(n)
+
+iap_revenue_period <-
+  daily_users %>%
+  filter(date %in% {{ days_in_period }}) %>%
+  summarize(iap_rev = sum(iap_revenue)) %>%
+  pull(..value..)
+
+iap_revenue_period / dau_period
+```
+
+Just like ARPU, we often don't care about DAU and DAC on specific days but for certain spans of spans of time. These spans of time could be:
+
+- days of certain months
+- spans of 15, 30, 60, 90, 120, 180, etc. days back from a certain date
+- a specific set of days between significant dates
+
+## YOUR TURN, IT'S TIME TO CODE
+
+The task is to write functions for calculating DAU, MAU, DAC, and ARPU for user-defined spans of time. Create a common interface for each one. Each should return a numeric value.
+
+After we are done (30 minutes), let's share what we have!
