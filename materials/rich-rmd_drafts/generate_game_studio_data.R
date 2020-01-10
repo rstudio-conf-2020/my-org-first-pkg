@@ -622,9 +622,6 @@ ad_view_tbl <-
   dplyr::mutate(type = "ad") %>%
   dplyr::rename(price = iap_price)
 
-#ad_view_tbl <- ad_view_tbl %>% dplyr::mutate(session_id = paste0(substr(user_id, 1, 5), "_", session_id))
-#purchase_tbl <- purchase_tbl %>% dplyr::mutate(session_id = paste0(substr(user_id, 1, 5), "_", session_id))
-
 revenue_tbl <-
   dplyr::bind_rows(purchase_tbl %>% dplyr::rename(price = iap_price), ad_view_tbl) %>%
   dplyr::arrange(date, time, user_id) %>%
@@ -719,8 +716,8 @@ daily_users_tbl <-
   dplyr::group_by(user_id) %>%
   dplyr::arrange(date, time) %>%
   dplyr::mutate(
-    iap_count = cumsum(iap_bought),
-    ad_count = cumsum(ad_view),
+    iap_count = as.integer(cumsum(iap_bought)),
+    ad_count = as.integer(cumsum(ad_view)),
     iap_revenue = cumsum(iap_rev),
     ad_revenue = cumsum(ad_rev),
   ) %>%
@@ -736,23 +733,34 @@ daily_users_tbl <-
         prob = dgamma(x = seq(1, 40, 0.2), shape = 2, rate = 0.15))
     )
   ) %>%
-  dplyr::mutate(session = 1) %>%
+  dplyr::mutate(session = 1L) %>%
   dplyr::group_by(user_id) %>%
   dplyr::arrange(date, time) %>%
   dplyr::mutate(
-    total_sessions = cumsum(session),
+    total_sessions = as.integer(cumsum(session)),
     total_time = cumsum(session_length)) %>%
   dplyr::ungroup() %>%
   dplyr::select(-session) %>%
-  dplyr::mutate(is_customer = ifelse(iap_count > 0, TRUE, FALSE)) %>%
+  dplyr::mutate(is_customer = ifelse(iap_count > 0, 1L, 0L)) %>%
   dplyr::mutate(level_reached = as.integer(floor((total_time * 2.5) / 10))) %>%
-  dplyr::mutate(level_reached = ifelse(level_reached >= 10, 10, level_reached)) %>%
-  dplyr::mutate(at_eoc = ifelse(level_reached == 10, TRUE, FALSE)) %>%
-  dplyr::mutate(in_ftue = ifelse(level_reached == 0, TRUE, FALSE)) %>%
+  dplyr::mutate(level_reached = ifelse(level_reached >= 10L, 10L, level_reached)) %>%
+  dplyr::mutate(at_eoc = ifelse(level_reached == 10, 1L, 0L)) %>%
+  dplyr::mutate(in_ftue = ifelse(level_reached == 0, 1L, 0L)) %>%
   dplyr::select(
     user_id, session_id, date, time, total_sessions, total_time,
     level_reached, at_eoc, in_ftue,
     is_customer, iap_revenue, ad_revenue, total_revenue, iap_count, ad_count
   ) %>%
   dplyr::arrange(date, time, user_id)
+
+# Convert `date` and `time` columns to `time`
+revenue_tbl <- 
+  revenue_tbl %>%
+  dplyr::mutate(time = lubridate::ymd_hms(paste(date, time))) %>%
+  dplyr::select(-date)
+
+daily_users_tbl <- 
+  daily_users_tbl %>%
+  dplyr::mutate(time = lubridate::ymd_hms(paste(date, time))) %>%
+  dplyr::select(-date)
 
