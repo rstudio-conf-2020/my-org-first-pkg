@@ -1,0 +1,27 @@
+---
+title: "02_02_kpis_segmentation"
+output: html_document
+---
+
+## Dividing the data into segments when calculating KPIs
+
+Sometimes we want to segment the data before getting the KPI values (for which time periods they represent). There might be two uses for this in an organization:
+
+- Creating a segmented version of a larger table, so that ad hoc analysis can then happen with that
+- Getting a specific KPI value for a certain 'segment'
+
+As you might imagine, there are lots of ways to segment data. Here are some examples of user segments:
+
+- user age (i.e., days since first login date)
+- their location (usually country)
+- whether they are customers
+- whether they are whales (we would specify what the cutoff spend is)
+- what their primary software platform is
+
+## YOUR TURN, IT'S TIME TO CODE
+
+Create a function that segments either the `daily_users`, the `users`, or the `revenue` table.
+
+Augment one or two the functions created earlier to take advantage of the segmentation functionality.
+
+After we are done (30 minutes), let's share what we have!
