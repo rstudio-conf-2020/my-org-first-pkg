@@ -1,5 +1,5 @@
 ---
-title: "databases_02"
+title: "01_02_databases"
 output: html_document
 ---
 
@@ -30,27 +30,23 @@ There are some inevitable downsides to keep in mind
 - some dplyr statements may create inefficient SQL (this is rarer but it can happen)
 - {others? speak up those with experience}
 
-For this course we have a MySQL database available on AWS. I'll provide the necessary information about how to access it here:
+For this workshop we have a MySQL database available on AWS. I'll provide the necessary information about how to access it here. Let's make a connection to the database (i.e., create a `con` object):
 
-- dbname = 
-- username = 
-- host = 
-- port = 
-
-Let's make a connection to the database (i.e., create a `con` object):
-
-```{r mysql_connection}
-# This is 
-server <- ""
+```{r mysql_connection_to_db}
+# This will be supplied at the day of the workshop,
+# and that's for security reasons
+dbname <- ""
 username <- ""
+password <- ""
+host <- ""
 port <- ""
 
 con <- 
   dbConnect(
     drv = RMariaDB::MariaDB(),
-    dbname = "",
+    dbname = dbname,
     username = username,
-    host = server,
+    host = host,
     port = port
   )
 ```
@@ -61,36 +57,12 @@ To determine which tables are in the database, we can use the `DBI::dbListTables
 DBI::dbListTables(con)
 ```
 
+Those are the tables that the **intendo** organization uses on a daily basis. They contain all of the data on users' sessions (`daily_users`), any revenue generated (`revenue`), and summarized information on user history (`users`) for their one game called **Super Jetroid**.
 
-### FUNCTION FOR PACKAGE: Find out which tables are available in the database
+## YOUR TURN, IT'S TIME TO CODE
 
-```{r function_data_in_databases_2.1}
-name <- function(args) {
-  function_body
-}
-```
+Now, a thing to do (to enable data access to the data users in the org) is to write some functions. Here are the functions to write:
 
-Local test.
+- One function that creates a connection object to the `intendo` database (*ans_01_02.1*)
+- Three functions that create a `tbl_dbi` object for the three tables in a the `intendo` database (*ans_01_02.2*)
 
-```{r function_data_in_databases_2.1_local_test}
-
-```
-
-Move the function over to the package.
-
-
-### FUNCTION FOR PACKAGE: Access to an existing MySQL database
-
-```{r function_data_in_databases_2.2}
-name <- function(args) {
-  function_body
-}
-```
-
-Local test.
-
-```{r function_data_in_databases_2.2_local_test}
-
-```
-
-Move the function over to the package.
