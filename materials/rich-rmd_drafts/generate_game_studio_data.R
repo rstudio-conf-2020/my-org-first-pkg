@@ -1,6 +1,8 @@
 library(tidyverse)
 library(lubridate)
 library(progress)
+library(DBI)
+library(RMySQL)
 
 # Set a seed
 set.seed(23)
@@ -754,23 +756,3 @@ daily_users_tbl <-
   ) %>%
   dplyr::arrange(date, time, user_id)
 
-
-# Save these as RDS files
-saveRDS(revenue_tbl, "revenue_tbl")
-saveRDS(user_tbl, "user_tbl")
-saveRDS(daily_users_tbl, "daily_users_tbl")
-
-#
-# Checks of the data
-#
-
-revenue_tbl %>%
-  dplyr::left_join(user_id_df, by = "user_id") %>%
-  dplyr::select(user_id, country) %>%
-  dplyr::distinct() %>%
-  dplyr::group_by(country) %>%
-  dplyr::summarize(n = n()) %>%
-  dplyr::arrange(desc(n))
-
-sum(revenue_tbl$price, na.rm = TRUE) # 30311248
-length(unique(revenue_tbl$user_id)) # 743306
