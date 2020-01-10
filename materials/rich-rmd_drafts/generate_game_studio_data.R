@@ -743,8 +743,13 @@ daily_users_tbl <-
   dplyr::ungroup() %>%
   dplyr::select(-session) %>%
   dplyr::mutate(is_customer = ifelse(iap_count > 0, TRUE, FALSE)) %>%
+  dplyr::mutate(level_reached = as.integer(floor((total_time * 2.5) / 10))) %>%
+  dplyr::mutate(level_reached = ifelse(level_reached >= 10, 10, level_reached)) %>%
+  dplyr::mutate(at_eoc = ifelse(level_reached == 10, TRUE, FALSE)) %>%
+  dplyr::mutate(in_ftue = ifelse(level_reached == 0, TRUE, FALSE)) %>%
   dplyr::select(
     user_id, session_id, date, time, total_sessions, total_time,
+    level_reached, at_eoc, in_ftue,
     is_customer, iap_revenue, ad_revenue, total_revenue, iap_count, ad_count
   ) %>%
   dplyr::arrange(date, time, user_id)
