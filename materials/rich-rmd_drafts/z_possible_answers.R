@@ -9,17 +9,16 @@ db_con <- function() {
   username <- ""
   password <- ""
   host <- ""
-  port <- 
+  port <- ""
   
-  con <- 
-    dbConnect(
-      drv = RMariaDB::MariaDB(),
-      dbname = dbname,
-      username = username,
-      password = password,
-      host = host,
-      port = port
-    )
+  dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = dbname,
+    username = username,
+    password = password,
+    host = host,
+    port = port
+  )
 }
 
 # An alternative with a requirement for password entry
@@ -28,17 +27,16 @@ db_con_p <- function(password = askpass::askpass()) {
   dbname <- ""
   username <- ""
   host <- ""
-  port <- 
-    
-    con <- 
-    dbConnect(
-      drv = RMariaDB::MariaDB(),
-      dbname = dbname,
-      username = username,
-      password = password,
-      host = host,
-      port = port
-    )
+  port <- ""
+  
+  dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = dbname,
+    username = username,
+    password = password,
+    host = host,
+    port = port
+  )
 }
 
 # Three functions that create `tbl_dbi` objects, one for
@@ -63,3 +61,9 @@ tbl_users <- function() {
   con <- db_con()
   tbl(con, "users")
 }
+
+# Three functions that create `tbl_dbi` objects, one for
+# each of the tables in the database
+# 
+# ans_02_02.1
+
