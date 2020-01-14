@@ -1,11 +1,11 @@
 ---
-title: "4_standardized_reporting_00"
+title: "04_standardized_reporting_00"
 output: html_document
 ---
 
 ## Building Package Functions for Standardizing Reporting
 
-Learning objectives
+Outline of Module
 
 - Standardization is actually advantageous in organizations
 - When to use standardized plots and tables

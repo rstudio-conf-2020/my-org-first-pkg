@@ -8,8 +8,10 @@ output: html_document
 Outline of Module
 
 - What is a KPI? Why do we use them so much?
-- Segmentation: it's really just filtering data
-- Designing KPI functions with segmentation in mind
+- Some of the KPIs we care about at **intendo**
+- Writing a package function that gets us a KPI from a DB table
+- Using segmentation: it's really just filtering data
 - Writing a segmentation function that works with our data
 - Writing a KPI function or two that uses segments
-- Testing out the function to make sure works well
+- Testing out the functions to make sure they work well
+- Design review. What could be better? Is it intuitive and explainable?

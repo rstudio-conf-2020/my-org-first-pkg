@@ -1,11 +1,11 @@
 ---
-title: "1_databases_00"
+title: "01_databases_00"
 output: html_document
 ---
 
 ## Working with Data in a Database
 
-Learning objectives
+Outline of Module
 
 - Understanding the value of databases over flat files
 - Which databases are available and (easily) accessible by R?
@@ -13,6 +13,6 @@ Learning objectives
 - How do we connect to a database? Examples with SQLite and MySQL
 - Manipulating database data with dplyr and collecting results
 - Finding out which tables are in a database
-- Creating a function to enable access to a database (i.e., creating a `con` object)
 - How do we create a database? How do add tables and table data?
-- Creating a function to update a database table
+- Introducing our database and our data tables. We all work for **intendo** (sic)
+- Creating a function to enable access to a database (i.e., creating a `con` object)

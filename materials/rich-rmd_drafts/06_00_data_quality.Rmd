@@ -1,0 +1,14 @@
+---
+title: "06_data_quality_00"
+output: html_document
+---
+
+## Everybody Can Help with Data Quality Management
+
+Outline of Module
+
+- Responsibilities for ensuring the correctness of data
+- Database tables, 3rd party data, and curated data need to be checked for quality
+- We can develop package functions that automate data quality checks on database tables
+- Development of functions that notify us if important data wasn't delivered to us
+- Using dashboards to monitor data quality (powered by our package functions)

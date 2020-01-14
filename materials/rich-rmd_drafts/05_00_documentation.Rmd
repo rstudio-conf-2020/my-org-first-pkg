@@ -1,0 +1,16 @@
+---
+title: "06_documentation_00"
+output: html_document
+---
+
+## Documentation Pieces that will make the package a success
+
+Outline of Module
+
+- How much documentation is needed?
+- What kinds of documentation?
+- A data dictionary: a thing that is so useful, yet, we don't see often enough
+- Documentation in organization-specific places (e.g., Confluence, Tettra, internal webpages)
+- Super simple examples as documentation: `tldr`
+- The README is the selling point of your package (even in an organization!)
+

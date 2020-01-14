@@ -1,5 +1,5 @@
 ---
-title: "5_pkg_quality_00"
+title: "05_pkg_quality_00"
 output: html_document
 ---
 
@@ -8,8 +8,8 @@ output: html_document
 Learning objectives
 
 - Determining the quality metrics for package (what does success look like?)
-- Building a test suite and determining code coverage
 - Using data extracts for testing purposes
+- Building a test suite and determining code coverage
 - Getting user feedback and implementing fixes, feature requests, etc.
 - Gauging user experience during tutorials and 1-to-1 training sessions
 - Using an issue tracker to keep track of all package-related issues
