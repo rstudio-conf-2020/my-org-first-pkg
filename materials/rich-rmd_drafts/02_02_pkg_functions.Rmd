@@ -1,5 +1,5 @@
 ---
-title: "02_02_kpis_segmentation"
+title: "02_02_pkg_functions"
 output: html_document
 ---
 

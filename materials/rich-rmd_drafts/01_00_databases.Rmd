@@ -7,12 +7,12 @@ output: html_document
 
 Outline of Module
 
-- Understanding the value of databases over flat files
+- Why use databases?
 - Which databases are available and (easily) accessible by R?
-- Which packages are required? Which additional libraries are required.
-- How do we connect to a database? Examples with SQLite and MySQL
-- Manipulating database data with dplyr and collecting results
+- Which packages are required?
+- How do we connect to a database?
 - Finding out which tables are in a database
+- Manipulating database data with dplyr and collecting results
 - How do we create a database? How do add tables and table data?
-- Introducing our database and our data tables. We all work for **intendo** (sic)
-- Creating a function to enable access to a database (i.e., creating a `con` object)
+- Introducing our database and our data tables
+- Creating a function to enable access to a database
