@@ -20,7 +20,7 @@ As you might imagine, there are lots of ways to segment data. Here are some exam
 
 ## YOUR TURN, IT'S TIME TO CODE
 
-1. Create a function that segments either the `daily_users`, the `users`, or the `revenue` table.
+1. Create a function that segments the `daily_users` table.
 
 2. Augment one or two of the functions created earlier to take advantage of the segmentation functionality.
 

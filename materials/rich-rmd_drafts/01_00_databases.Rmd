@@ -10,9 +10,12 @@ Outline of Module
 - Why use databases?
 - Which databases are available and (easily) accessible by R?
 - Which packages are required?
-- How do we connect to a database?
-- Finding out which tables are in a database
-- Manipulating database data with dplyr and collecting results
-- How do we create a database? How do add tables and table data?
+- CODE DEMO: `01_01_databases.Rmd`
+    - Manipulate database data with **dplyr** and collect results
 - Introducing our database and our data tables
-- Creating a function to enable access to a database
+- CODE DEMO: `01_02_databases.Rmd`
+    - How do we connect to a database?
+    - Finding out which tables are in a database
+    - YOU CODE (20 minutes)
+        - Create a function that enables access to a database
+        - Create functions for getting tables in a database
