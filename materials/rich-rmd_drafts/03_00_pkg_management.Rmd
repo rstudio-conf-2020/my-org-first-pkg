@@ -3,7 +3,7 @@ title: "03_00_pkg_management"
 output: html_document
 ---
 
-## Managing the Internal Package Development
+## Managing the Development of the Internal Package
 
 Outline of Module
 

@@ -1,16 +1,17 @@
 ---
-title: "06_documentation_00"
+title: "05_00_documentation"
 output: html_document
 ---
 
-## Documentation Pieces that will make the package a success
+## Documentation Pieces that Will Make the Package a Smashing Success
 
 Outline of Module
 
-- How much documentation is needed?
-- What kinds of documentation?
-- A data dictionary: a thing that is so useful, yet, we don't see often enough
-- Documentation in organization-specific places (e.g., Confluence, Tettra, internal webpages)
-- Super simple examples as documentation: `tldr`
+- How much documentation is needed and what formats are available?
 - The README is the selling point of your package (even in an organization!)
-
+- The **pkgdown** site is still insanely useful for proprietary packages
+- Internal documentation should be seriously buffed
+- Super simple examples as documentation: `tldr`
+- Training material (if available) should be posted somewhere
+- The data dictionary: so useful, yet, we don't see it often enough
+- Documentation in organization-specific places
