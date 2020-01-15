@@ -1,5 +1,5 @@
 ---
-title: "03_pkg_management_00"
+title: "03_00_pkg_management"
 output: html_document
 ---
 
@@ -7,14 +7,20 @@ output: html_document
 
 Outline of Module
 
-- What's needed to make the development and uptake of the package a success?
-- Who should be involved and what are their roles?
+- Finding out what's needed to make the package a success
+- Getting people involved and giving their roles
 - Initial planning and prioritizing
-- Support from stakeholders (for making the package)
-- Hosting the package
+- Winning support from stakeholders
+- Hosting the package in the organization
 - Quality measures and quality control
-- Education/training in the use of the package
+- Training & education requirements for the package
 - Managing updates and major changes to the package API
 - Getting internal users and encouraging contributions
 - The package should have a license... which one?
 - Communicating the value of the package
+- DISCUSSION (30 minutes)
+    - Did you do any of these things IRL?
+    - What worked and what didn't?
+    - Have you ever met any resistance to this sort of enterprise?
+    - Do you have any advice from personal experience?
+    - Want to share some miscellaneous tips/tricks w.r.t. package dev/mgmt?
