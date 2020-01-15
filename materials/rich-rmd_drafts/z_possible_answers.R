@@ -66,17 +66,17 @@ db_con_p <- function(password = askpass::askpass()) {
 
 tbl_daily_users <- function(con = NULL) {
   
-  tbl(con, "daily_users")
+  dplyr::tbl(con, "daily_users")
 }
 
 tbl_revenue <- function(con = NULL) {
   
-  tbl(con, "revenue")
+  dplyr::tbl(con, "revenue")
 }
 
 tbl_users <- function(con = NULL) {
   
-  tbl(con, "users")
+  dplyr::tbl(con, "users")
 }
 
 
