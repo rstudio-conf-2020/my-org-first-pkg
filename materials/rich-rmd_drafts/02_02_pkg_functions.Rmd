@@ -22,6 +22,6 @@ As you might imagine, there are lots of ways to segment data. Here are some exam
 
 1. Create a function that segments the `daily_users` table.
 
-2. Augment one or two of the functions created earlier to take advantage of the segmentation functionality.
+2. Augment the `get_dau()` function created earlier to use segmentation.
 
 After we are done (30 minutes), let's share what we have!

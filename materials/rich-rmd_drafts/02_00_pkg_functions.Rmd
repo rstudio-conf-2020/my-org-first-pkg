@@ -10,7 +10,7 @@ Outline of Module
 - Planning out the functions you'll want to include
 - Let's make some functions that get a few KPIs
 - We need to define the KPI definitions and calculations first
-- Writing package functions that get a few KPIs from a DB table
+- Writing code that gets us a few KPIs from a DB table
 - CODE DEMO: `02_01_pkg_functions.Rmd`
     - YOU CODE (30 minutes)
         - Write functions for calculating four KPIs

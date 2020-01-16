@@ -194,8 +194,7 @@ get_arpu(con = intendo, dates = c("2015-01-01", "2015-01-02", "2015-01-03")) # 6
 
 
 
-# A function that segments either the `daily_users`,
-# `users`, or `revenue` table
+# A function that segments the `daily_users` table
 # 
 # ans_02_02.1
 
@@ -238,6 +237,10 @@ segment_daily_users(con = intendo) %>% dplyr::count()  # 1969139
 segment_daily_users(con = intendo, is_customer = FALSE) %>% dplyr::count() # 772603
 segment_daily_users(con = intendo, is_customer = TRUE) %>% dplyr::count() # 1196536
 
+
+# Augment the `get_dau()` function created earlier to use segmentation
+# 
+# ans_02_02.2
 
 # Modify the `get_dau()` function to accept a segment
 get_dau_2 <- function(con,
