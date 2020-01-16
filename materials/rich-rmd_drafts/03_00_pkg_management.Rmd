@@ -12,8 +12,14 @@ Outline of Module
 - Initial planning and prioritizing
 - Winning support from stakeholders
 - Hosting the package in the organization
-- Quality measures and quality control
+- The README as the selling point of your package
+- A **pkgdown** site is still insanely useful in an organization
+- Internal documentation should be seriously buffed
+- Super simple examples as documentation: `tldr`
+- The data dictionary: so useful, yet, we don't see it often enough
 - Training & education requirements for the package
+- Quality measures and quality control
+- Tracking Issues
 - Managing updates and major changes to the package API
 - Getting internal users and encouraging contributions
 - The package should have a license... which one?
