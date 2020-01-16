@@ -1,5 +1,5 @@
 ---
-title: "04_00_standardized_reporting"
+title: "05_00_standardized_reporting"
 output: html_document
 ---
 
@@ -12,7 +12,7 @@ Outline of Module
 - New package functions (that use our previous functions) to create standardized plots and tables
 - CODE DEMO: `04_01_standardized_reporting.Rmd`
     - time-series plots of different revenue types segmented by country
-    - YOU CODE (40 minutes)
+    - YOU CODE (30 minutes)
         - Create a function that generates a **ggplot** with the following:
           - revenue going back 30, 60, or 90 days
           - text annotations of total revenue for every standard week
@@ -20,7 +20,7 @@ Outline of Module
           - a title and a subtitle that automatically displays the right info about the plot
 - CODE DEMO: `04_02_standardized_reporting.Rmd`
     - summary table with different KPIs and revenue data segmented by country
-    - YOU CODE (40 minutes)
+    - YOU CODE (30 minutes)
         - Create a function that generates a **gt** table with the following:
           - weekly average KPI values for DAU, MAU, DAC, ARPU going back 60 days
           - total revenue (IAP revenue + advertising revenue)

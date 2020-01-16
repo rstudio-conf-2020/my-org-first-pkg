@@ -18,7 +18,7 @@ Outline of Module
 - Getting internal users and encouraging contributions
 - The package should have a license... which one?
 - Communicating the value of the package
-- DISCUSSION (30 minutes)
+- DISCUSSION (20 minutes)
     - Did you do any of these things IRL?
     - What worked and what didn't?
     - Have you ever met any resistance to this sort of enterprise?
