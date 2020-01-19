@@ -7,11 +7,11 @@ library(gt)
 
 db_con <- function() {
   
-  dbname <- ""
-  username <- ""
-  password <- ""
-  host <- ""
-  port <- ""
+  dbname <- Sys.getenv("DBNAME")
+  username <- Sys.getenv("USERNAME")
+  password <- Sys.getenv("PASSWORD")
+  host <- Sys.getenv("HOST")
+  port <- Sys.getenv("PORT")
   
   conn <- 
     dbConnect(
@@ -33,10 +33,10 @@ db_con <- function() {
 # An alternative with a requirement for password entry
 db_con_p <- function(password = askpass::askpass()) {
   
-  dbname <- ""
-  username <- ""
-  host <- ""
-  port <- ""
+  dbname <- Sys.getenv("DBNAME")
+  username <- Sys.getenv("USERNAME")
+  host <- Sys.getenv("HOST")
+  port <- Sys.getenv("PORT")
   
   conn <- 
     dbConnect(
@@ -316,7 +316,7 @@ get_total_revenue_by_date <- function(con, dates) {
 }
 
 # Create a function to get a set of dates back from a specific date
-get_dates_back <- function(n_days = 30,
+get_dates_back <- function(n_days,
                            end_date = lubridate::today()) {
   
     seq(
@@ -328,7 +328,7 @@ get_dates_back <- function(n_days = 30,
 }
 
 # Use the `get_dates_back` function to get dates 30 days back from `2015-09-30`
-dates <- get_dates_back(end_date = lubridate::ymd("2015-09-30"))
+dates <- get_dates_back(n_days = 30, end_date = lubridate::ymd("2015-09-30"))
 
 # Use the `get_total_revenue_by_date()` function to revenue values for the `dates`
 ts_data <- get_total_revenue_by_date(con = intendo, dates = dates)
@@ -453,11 +453,63 @@ create_standard_ts_plot(
 
 
 # - Create a function that generates a **gt** table with the following:
-#   - weekly average KPI values for DAU, MAU, DAC, ARPU going back 60 days
-#   - total revenue (IAP revenue + advertising revenue)
-#   - include averages over the entire period and grand total sum of revenue
+#   - weekly average KPI values for DAU and DAC going back n number of days
+#   - include averages over the entire period
 #   - a title and subtitle that automatically displays the information about the table
 #
 # ans_04_01.2
 
+
+# Use the `get_dates_back` function to get dates 60 days back from `2015-09-30`
+dates <- get_dates_back(n_days = 14, end_date = lubridate::ymd("2015-09-30"))
+
+kpi_tbl <- 
+  dplyr::tibble(date = dates) %>%
+  dplyr::arrange(dplyr::desc(date)) %>%
+  dplyr::mutate(weeknum = lubridate::week(date)) %>%
+  dplyr::group_by(weeknum) %>%
+  dplyr::mutate(days_in_week = dplyr::n()) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(days_in_week == 7) %>%
+  dplyr::group_by(weeknum) %>%
+  dplyr::summarize(
+    day_start = min(date),
+    day_end = max(date),
+    dau = get_dau(con = intendo, dates = date),
+    dac = get_dac(con = intendo, dates = date)
+  ) %>% 
+  dplyr::collect()
+  
+
+kpi_gt_tbl <-
+  kpi_tbl %>%
+  gt::gt(rowname_col = "weeknum") %>%
+  gt::cols_merge_range(
+    col_begin = vars(day_start),
+    col_end = vars(day_end),
+    sep = " to "
+  ) %>%
+  gt::cols_label(
+    day_start = "Day Range",
+    dau = "DAU",
+    dac = "DAC"
+  ) %>%
+  gt::tab_header(
+    title = gt::md("**DAU** and **DAC** for *Super Jetroid*"),
+    subtitle = gt::md(
+      glue::glue("Summary data for Weeks {min(kpi_tbl$weeknum)} to {max(kpi_tbl$weeknum)}.<br><br>")
+    )
+  ) %>%
+  gt::tab_stubhead(label = "Wk.") %>%
+  gt::fmt_number(columns = vars(dau, dac), decimals = 0) %>%
+  gt::grand_summary_rows(
+    columns = vars(dau, dac),
+    fns = list(MEAN = ~mean(., na.rm = TRUE)),
+    missing_text = "",
+    formatter = fmt_number,
+    decimals = 0
+  ) %>%
+  gt::tab_options(row.striping.include_table_body = FALSE) %>%
+  gt::tab_style(style = gt::cell_text(align = "left"), locations = gt::cells_title("title")) %>%
+  gt::tab_style(style = gt::cell_text(align = "left"), locations = gt::cells_title("subtitle"))
 
