@@ -1,5 +1,7 @@
 library(tidyverse)
 
+# These are functions for accessing each of the tables in the intendo DB
+
 tbl_daily_users <- function(con = NULL) {
 
   tbl(con, "daily_users")
