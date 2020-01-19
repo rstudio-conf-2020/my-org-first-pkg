@@ -1,0 +1,11 @@
+Here are some ideas for intial data access functions for the package. I tested
+them out on my local machine and they seemed to work fine.
+
+The functions are:
+
+db_con() -- for connecting to the intendo database (using environment variables)
+db_con_p()  -- also like db_con() except that it forces use to use a password
+
+tbl_daily_users() --|
+tbl_revenue() ------|
+tbl_users() --------`-- these use the DB connection to get us the DB tables

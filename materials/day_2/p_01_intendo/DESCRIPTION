@@ -1,0 +1,16 @@
+Type: Package
+Package: intendo
+Version: 0.0.0.9000
+Title: A package for Intendo
+Description: TBA
+Authors@R: c(
+    person("First", "Last", , "email@example.com", c("aut", "cre")),
+    person("Intendo", role = c("cph", "fnd"))
+    )
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+RoxygenNote: 7.0.2
+Depends: 
+    R (>= 3.2.1)
