@@ -9,28 +9,41 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(DBI)
 library(RMariaDB)
+library(usethis)
 ```
 
 ## Working with Data in a Database, Part II
 
-For this workshop we have a MySQL database available on AWS. I'll provide the necessary information about how to access it here. Let's make a connection to the database (i.e., create a `con` object):
+For this workshop we have a MySQL database available on AWS. I'll provide the necessary information about how to access it here. 
+
+A safe way to store secrets on a system is to use environment variables. Let's use `usethis::edit_r_envion()` to add environment variables that contain configuration and authentication values for the `intendo` database.
+
+``` r
+# Edit the `.Renviron` file
+edit_r_envion()
+```
+
+This is what the lines to be added should look like:
+
+```
+DBNAME=intendo
+USERNAME=
+PASSWORD=
+HOST=intendo-db.csa7qlmguqrf.us-east-1.rds.amazonaws.com
+PORT=3306
+```
+
+Let's make a connection to the database (i.e., create a `con` object):
 
 ```{r mysql_connection_to_db}
-# This will be supplied at the day of the workshop,
-# and that's for security reasons
-dbname <- ""
-username <- ""
-password <- ""
-host <- ""
-port <- ""
-
-con <- 
-  dbConnect(
+con <-
+  DBI::dbConnect(
     drv = RMariaDB::MariaDB(),
-    dbname = dbname,
-    username = username,
-    host = host,
-    port = port
+    dbname = Sys.getenv("DBNAME"),
+    username = Sys.getenv("USERNAME"),
+    password = Sys.getenv("PASSWORD"),
+    host = Sys.getenv("HOST"),
+    port = Sys.getenv("PORT")
   )
 ```
 
