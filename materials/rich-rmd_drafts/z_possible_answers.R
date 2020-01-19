@@ -7,20 +7,14 @@ library(gt)
 
 db_con <- function() {
   
-  dbname <- Sys.getenv("DBNAME")
-  username <- Sys.getenv("USERNAME")
-  password <- Sys.getenv("PASSWORD")
-  host <- Sys.getenv("HOST")
-  port <- Sys.getenv("PORT")
-  
   conn <- 
-    dbConnect(
+    DBI::dbConnect(
       drv = RMariaDB::MariaDB(),
-      dbname = dbname,
-      username = username,
-      password = password,
-      host = host,
-      port = port
+      dbname = Sys.getenv("DBNAME"),
+      username = Sys.getenv("USERNAME"),
+      password = Sys.getenv("PASSWORD"),
+      host = Sys.getenv("HOST"),
+      port = Sys.getenv("PORT")
     )
   
   assign(
@@ -39,13 +33,13 @@ db_con_p <- function(password = askpass::askpass()) {
   port <- Sys.getenv("PORT")
   
   conn <- 
-    dbConnect(
+    DBI::dbConnect(
       drv = RMariaDB::MariaDB(),
-      dbname = dbname,
-      username = username,
+      dbname = Sys.getenv("DBNAME"),
+      username = Sys.getenv("USERNAME"),
       password = password,
-      host = host,
-      port = port
+      host = Sys.getenv("HOST"),
+      port = Sys.getenv("PORT")
     )
   
   assign(
