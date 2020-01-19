@@ -55,10 +55,27 @@ DBI::dbListTables(con)
 
 Those are the tables that the **intendo** organization uses on a daily basis. They contain all of the data on users' sessions (`daily_users`), any revenue generated (`revenue`), and summarized information on user history (`users`) for their one game called **Super Jetroid**.
 
-## YOUR TURN, IT'S TIME TO CODE
+## YOUR TURN
 
-Now, a thing to do (to enable data access to the data users in the org) is to write some functions. Here are the functions to write:
+Open up the package-in-progress `materials/day_2/p_01_intendo/01_intendo.Rproj`.
 
-- One function that creates a connection object to the `intendo` database (*ans_01_02.1*)
-- Three functions that create a `tbl_dbi` object for the three tables in a the `intendo` database (*ans_01_02.2*)
+Take a look around and see which package components are in place.
 
+There are no functions yet (No R folder!) but there is a `scripts` folder with .R files that contain functions that have been tested out locally. Test them yourself, then, integrate them into the package.
+
+Some **usethis** functions to try out:
+
+- `use_r()`
+- `use_pipe()`
+- `use_build_ignore()`
+- `use_package()`
+
+- `use_package_doc()`
+- `use_news_md()`
+- `use_readme_rmd()`
+- `use_roxygen_md()`
+
+Occasionally use `R CMD check` to see if there are any problems (and then fix those problems).
+
+Once the functions are integrated into the package. Build the package and test out the new package functions! If there's time, create a `NEWS.md` file, `README.Rmd/README.md`, and some function
+documentation.
