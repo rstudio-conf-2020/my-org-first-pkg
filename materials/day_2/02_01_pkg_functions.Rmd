@@ -110,15 +110,3 @@ iap_revenue_period <-
 iap_revenue_period / dau_period
 ```
 
-
-## YOUR TURN, IT'S TIME TO CODE
-
-Just like ARPU, we often don't care about DAU and DAC on specific days but for certain spans of spans of time. These spans of time could be:
-
-- days of certain months
-- spans of 15, 30, 60, 90, 120, 180, etc. days back from a certain date
-- a specific set of days between significant dates
-
-The task is to write functions for calculating DAU, MAU, DAC, and ARPU for user-defined spans of time. Create a common interface for each one. Each should return a numeric value.
-
-After we are done (30 minutes), let's share what we have!
