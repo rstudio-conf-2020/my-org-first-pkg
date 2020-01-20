@@ -1,0 +1,55 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r initial_setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+library(intendo)
+library(dplyr)
+library(lubridate)
+```
+
+# intendo
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of the **intendo** R package is to make it much easier to work with our own data. Here at Intendo.
+
+## A Example of How to Use **intendo**
+
+Get the appropriate environment variables set in your system (ask us how to do that). Then, you can make a connection to the database with `db_con()`
+
+```{r connecting}
+intendo <- db_con()
+```
+
+Then we can get access to a specific table, creating a `tbl_dbi` object:
+
+```{r tbl_daily_users}
+
+daily_users <- tbl_daily_users(con = intendo)
+daily_users
+```
+
+Now with `daily_users` and a little **dplyr**, we can easily query the table for specific information.
+
+```{r get_user_info}
+daily_users %>%
+  mutate(date = as.Date(time)) %>%
+  filter(date == "2015-10-31", at_eoc == 1) %>%
+  select(user_id, total_revenue) %>%
+  group_by(user_id) %>%
+  summarize(total_revenue = max(total_revenue, na.rm = TRUE)) %>%
+  arrange(desc(total_revenue))
+```
+
+And this is only the beginning. The development team is working toward adding functions that get us our KPIs, help us generate reports, and much more.
