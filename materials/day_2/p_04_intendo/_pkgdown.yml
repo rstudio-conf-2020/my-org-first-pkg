@@ -1,0 +1,38 @@
+destination: docs
+
+home:
+  strip_header: true
+
+reference:
+  - title: Connect the DB
+    desc: >
+      We can get a connection for the Intendo MySQL database with either of two
+      functions: `db_con()` or `db_con_p()`. Make sure you have credentials info
+      available as environment variables.
+    contents:
+    - db_con
+    - db_con_p
+
+  - title: Access to DB tables
+    desc: >
+      There are three tables in the database, and, three functions that work
+      to get us a `tbl_dbi` object from each.
+    contents:
+    - tbl_functions
+
+  - title: Getting KPIs
+    desc: >
+      We can get KPIs with specialized functions for each. This makes it easy
+      to get reporting information quickly. The KPIs currently supported are:
+      `get_dau()`, `get_mau()`, `get_dac()`, and `get_arpu()`. With the
+      `segment_daily_users()` function, we can create segmented versions of
+      DAU.
+    contents:
+    - get_dau
+    - get_mau
+    - get_dac
+    - get_arpu
+    - segment_daily_users
+
+development:
+  mode: devel

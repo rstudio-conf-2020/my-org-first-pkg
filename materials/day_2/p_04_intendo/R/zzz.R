@@ -1,0 +1,11 @@
+globalVariables(
+  c(
+    "ad_revenue",
+    "iap_rev",
+    "iap_revenue",
+    "is_customer",
+    "n",
+    "time",
+    "user_id"
+  )
+)
