@@ -13,10 +13,10 @@ The course materials will be available on the website and you could always reach
 
 Today, we'll learn about:
 
- 1. `databases` and easier access to them through an organizational R package
- 2. Working with `pkg_functions` for reporting KPIs and getting data segments
- 3. `pkg_management`: the management and communication around an internal R package
- 4. Using `standardized_reporting` functions to standardize tables and plots for reporting needs
+ 1. `Working with Data in a Database`, leading to easier access to database tables c/o our R package
+ 2. Adding some `Package Functions` for reporting KPIs and getting data segments
+ 3. `Package Management`: the management and communication around an internal R package
+ 4. Using `Standardized Reporting` functions to standardize tables and plots for an organization's reporting needs
  
 ## Periods Where You Do Package Development
 
