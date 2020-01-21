@@ -18,10 +18,24 @@ There are a few KPIs that we need on a continual basis. These are DAU, MAU, DAC,
 - DAC: daily active customers
 - ARPU: average revenue per user
 
-Let's use the `daily_users` table to make functions that get us each of these KPIs. First, we need access to the table in the database:
+Let's use the `daily_users` table to make functions that get us each of these KPIs. First, we need access to the database. 
+
+```{r mysql_connection_to_db}
+con <-
+  DBI::dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = Sys.getenv("DBNAME"),
+    username = Sys.getenv("USERNAME"),
+    password = Sys.getenv("PASSWORD"),
+    host = Sys.getenv("HOST"),
+    port = Sys.getenv("PORT")
+  )
+```
+
+Then we can make a `tbl_dbi` object with the connection object and the table name.
 
 ```{r}
-daily_users <- "<<FUNCTION>>"
+daily_users <- _____
 ```
 
 We can define the daily active users (DAU) for a specific date.
