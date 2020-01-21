@@ -78,7 +78,7 @@ RSTUDIO.CLOUD ACCOUNT, ETC.\]
 
 ### Richard Iannone
 
-\[ADD INSTRUCTOR BIO\]
+Rich is a software engineer that enjoys working with R. He likes to create R packages that help people to accomplish things. During workshops like this one, Rich wants to teach R material in a way that is both enjoyable and educational. While Rich very clearly digs R, he enjoys other things as well! Examples include: playing and listening to music, reading books, watching films, meeting up with friends, and wandering through the many valleys and ravines of the Greater Toronto Area.
 
 -----
 
