@@ -29,3 +29,43 @@ We are providing checkpoint package projects so that you don't run the risk of g
 All of the code to generate it is available in the `generate_game_studio_data.R` script. Yes, it does try to simulate analytics data you might find at a game studio. It's by no means a very reasonable simulation of user behavior in the game space but it should serve us well at least for the purposes of this workshop.
 
 The dataset generation script takes a very long time to run. If you'd prefer to skip all of that processing time, RDS files for the three tables are available in the repo as `daily_users.rds`, `revenue.rds`, and `users.rds`.
+
+## Packages Required
+
+The R packages needed for Day 2 are:
+
+- DBI
+- RSQLite
+- RMariaDB
+- nycflights13
+- dplyr
+- readr
+- lubridate
+- ggplot2
+- scales
+- magrittr
+- rlang
+- usethis
+- testthat
+- glue
+- askpass
+- rmarkdown
+- gt (with remotes::install_github("rstudio/gt"))
+
+The installation of **RMariaDB** requires the installation of system libraries. The names of the libraries and their method of installation depend on the system:
+
+### Debian or Ubuntu
+
+`sudo apt-get install -y libmysqlclient-dev`
+`sudo apt-get install -y libmariadb-client-lgpl-dev`
+
+### Fedora, CentOS, or RHEL
+
+`sudo yum install mysql-devel`
+`sudo yum install mysql-devel`
+
+### Mac (Homebrew)
+
+`brew install mysql-connector-c++`
+`brew install mariadb-connector-c`
+
