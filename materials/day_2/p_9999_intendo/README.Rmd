@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r initial_setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+library(intendo)
+library(dplyr)
+library(lubridate)
+```
+
+# The **intendo** R package
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of the **intendo** R package is to make it much easier to work with our own data.  We can get a connection for the Intendo MySQL database with either of two functions: `db_con()` or `db_con_p()`. To join in on the fun, ask your manager for permission to the database credentials and we'll be sure to get them to you. After you have that information, you need to have that credentials info available as environment variables (the data team can also help you with that setup step).
+
+There are three tables in the MySQL database that holds all of our game information (for that super fun and addictive game known as *Super Jetroid*). We make it easy to access those tables with three different functions that work to get us a `tbl_dbi` object from each. The object obtained can be used with the **dplyr** R package and associated packages for data analysis. We hold monthly training sessions on R and how to use it for data analysis, so, send the development team (available in Slack in the `#rpackage` channel) a message if you're interested in attending! We hope to show you how to use this package to get information from our data.
+
+The package is still in active development but we're excited to say that the main KPIs we constantly focus on (DAU, MAU, DAC, and ARPU) can be obtained quite easily using this package (examples available in the next section of this README). We hope to put a lot more useful functionality in this package and have the methods used therein be the source of truth throughout the company. If you're interested in contributing, we would welcome that wholeheartedly. The Slack channel mentioned is suitable for that. We are planning on getting either GitHub or GitLab, which is where any issues would then be posted (for now, Slack is the best way).
+
+## A Example of How to Use **intendo**
+
+Get the appropriate environment variables set in your system (ask us how to do that). Then, you can make a connection to the database with `db_con()`
+
+```{r connecting}
+intendo <- db_con()
+```
+
+Then we can get access to a specific table, creating a `tbl_dbi` object:
+
+```{r tbl_daily_users}
+
+daily_users <- tbl_daily_users(con = intendo)
+daily_users
+```
+
+Now with `daily_users` and a little **dplyr**, we can easily query the table for specific information.
+
+```{r get_user_info}
+daily_users %>%
+  mutate(date = as.Date(time)) %>%
+  filter(date == "2015-10-31", at_eoc == 1) %>%
+  select(user_id, total_revenue) %>%
+  group_by(user_id) %>%
+  summarize(total_revenue = max(total_revenue, na.rm = TRUE)) %>%
+  arrange(desc(total_revenue))
+```
+
+We can get the average DAU for a span of days. This is how we can do it:
+
+```{r get_average_dau}
+get_dau(con = intendo, dates = c("2015-01-01", "2015-01-02", "2015-01-03"))
+```
+
+And this is only the beginning. The development team is working toward adding functions that get us our KPIs, help us generate reports, and much more.
+
+## Installation
+
+This is still in development but if you're keen to try the in-development package, there's a link in the `#rpackage` Slack channel that leads to the source `.tar.gz` file. We hope to make this easier in the future but, for now, this is the best we could do.
+
+## License
+
+MIT (c) Intendo

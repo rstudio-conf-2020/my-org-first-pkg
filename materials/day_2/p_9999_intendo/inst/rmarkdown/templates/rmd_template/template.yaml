@@ -1,0 +1,4 @@
+name: intendo_kpi_report
+description: >
+   A template for KPI reporting at intendo
+create_dir: FALSE

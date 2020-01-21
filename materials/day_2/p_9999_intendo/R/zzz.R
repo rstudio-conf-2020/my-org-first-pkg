@@ -1,0 +1,20 @@
+utils::globalVariables(
+  c(
+    "ad_revenue",
+    "avg_value",
+    "dac",
+    "dau",
+    "day_end",
+    "day_start",
+    "day_type",
+    "days_in_week",
+    "dow",
+    "iap_rev",
+    "iap_revenue",
+    "is_customer",
+    "n",
+    "time",
+    "user_id",
+    "weeknum"
+  )
+)
