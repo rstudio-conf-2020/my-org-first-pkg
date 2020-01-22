@@ -7,18 +7,9 @@ by Rich Iannone and Malcolm Barrett
 
 -----
 
-INSTRUCTIONS FOR INSTRUCTORS: Please insert information about your
-workshop below. Then, add workshop content in the materials folder and
-link to each session’s materials from the schedule below. You are
-welcomed to add more rows to the schedule. We just ask that you take
-breaks at the specified times. Once you are done adding information, you
-can remove these instructions from the README.
-
------
-
 :spiral_calendar: January 27 and 28, 2020  
 :alarm_clock:     09:00 - 17:00  
-:hotel:           \[ADD ROOM\]  
+:hotel:           Golden Gate Room 8  
 :writing_hand:    [rstd.io/conf](http://rstd.io/conf)
 
 -----
@@ -31,7 +22,7 @@ Creating your first organizational R package can be daunting however. You may wo
 
 ## Learning objectives
 
-ADD LEARNING OBJECTIVE(S)
+Attendees will learn how to create an R package from the ground up with functions available in the excellent **usethis** package. You'll get an introduction to package creation, with an emphasis on convenient workflows. We'll learn how to integrate functions that use database data to generate KPIs into a package project. There will also be a special focus on things that can be done to help make the package project succeed within the organization.
 
 ## Is this course for me?
 
@@ -43,10 +34,7 @@ This workshop is appropriate for attendees who answer "yes" to these three quest
 
 ## Prework
 
-\[ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.\]
+Coming soon.
 
 ## Schedule for Day 1 (January 27, 2020)
 
@@ -62,7 +50,7 @@ RSTUDIO.CLOUD ACCOUNT, ETC.\]
 
 ### Instructor
 
-\[ADD INSTRUCTOR BIO\]
+Instructor Bio coming soon.
 
 ## Schedule for Day 2 (January 28, 2020)
 
