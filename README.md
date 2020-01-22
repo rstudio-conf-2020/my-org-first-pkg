@@ -34,7 +34,7 @@ This workshop is appropriate for attendees who answer "yes" to these three quest
 
 ## Prework
 
-Coming soon.
+All of the important details for the things you can do before the workshop are at: https://my-org-first-pkg-2020.netlify.com/pre/.
 
 ## Schedule for Day 1 (January 27, 2020)
 
