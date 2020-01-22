@@ -50,7 +50,7 @@ All of the important details for the things you can do before the workshop are a
 
 ### Instructor
 
-Instructor Bio coming soon.
+Malcolm Barrett is an R developer and a PhD student in Epidemiology at the University of Southern California. His work in public health has spanned on-ground clinical education and research for clinical and cohort studies. Previously, he was an intern at RStudio, and he served two years in AmeriCorps at federally-qualified health centers in Michigan and New York City.
 
 ## Schedule for Day 2 (January 28, 2020)
 
