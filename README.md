@@ -38,15 +38,15 @@ All of the important details for the things you can do before the workshop are a
 
 ## Schedule for Day 1 (January 27, 2020)
 
-| Time          | Activity         |
-| :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
-| 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
-| 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
-| 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| Time          | Activity                       |
+| :------------ | :----------------------------- |
+| 09:00 - 10:30 | Welcome, Setup Packages        |
+| 10:30 - 11:00 | *Coffee break*                 |
+| 11:00 - 12:30 | Write Code, Document           |
+| 12:30 - 13:30 | *Lunch break*                  |
+| 13:30 - 15:00 | Test Code, Teach Others        |
+| 15:00 - 15:30 | *Coffee break*                 |
+| 15:30 - 17:00 | Adding Data and Files, Wrap Up |
 
 ### Instructor
 
@@ -62,7 +62,7 @@ Malcolm Barrett is an R developer and a PhD student in Epidemiology at the Unive
 | 12:30 - 13:30 | *Lunch break*                   |
 | 13:30 - 15:00 | Package Management              |
 | 15:00 - 15:30 | *Coffee break*                  |
-| 15:30 - 17:00 | Standardized Reporting          |
+| 15:30 - 17:00 | Standardized Reporting, Wrap Up |
 
 ### Rich Iannone
 
