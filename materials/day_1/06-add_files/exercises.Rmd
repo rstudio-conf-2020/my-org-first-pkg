@@ -1,0 +1,106 @@
+---
+title: "Add data and files to R packages"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+## Your Turn 1
+
+1. Let's create a data dictionary for avalanche and add the results to a vignette. First, run `use_data_raw()`. Call the data "data_dictionary". In the data processing file, put this code before the `use_data()` line. Then, source the script. This will run `use_data()` for you.
+
+```{r}
+res_dictionary <- 
+  tibble::tibble(
+    database = "residents_per_sector",
+    variable = c("sector", "residents"),
+    description = c(
+      "Midgar Sector #",
+      "Number of residents"
+    )
+  )
+
+reactor_dictionary <- 
+  tibble::tibble(
+    database = "shinra_reactor_output", 
+    variable = c("reactor", "day", "output"),
+    description = c(
+      "Reactor ID",
+      "Day of year (integer)",
+      "Reactor output (gigawatts)"
+    )
+  )
+
+donations_dictionary <- 
+  tibble::tibble(
+    database = "donations",
+    variable = c("donor_id", "sector", "donation"),
+    description = c(
+      "Donor ID",
+      "Midgar Sector # of donor residence",
+      "Donation amount (gil)"
+    )
+  )
+
+data_dictionary <- 
+  dplyr::bind_rows(res_dictionary, reactor_dictionary, donations_dictionary)
+```
+
+2. Open `R/tables.R`. Add a function called `gt_data_dictionary()` that wraps `data_dictionary` in `gt::gt()`. You can use `gt_donations()` as a starting point for the new function.
+
+3. Re-document and re-build the package.
+
+4. Open `vignettes/data-dictionary.Rmd`. On line 24, run `gt_data_dictionary()` and knit the vignette.
+
+## Your Turn 2
+
+1. Create a new R Markdown template called "avalanche-report" using `use_rmarkdown_template()`. For the `template_description` argument, set it to: "A weekly report of AVALANCHE activities." 
+
+2. Inside the `exercises/` folder, there is a file called `report.Rmd`. Copy and paste its contents into `inst/rmarkdown/templates/avalanche-report/skeleton/skeleton.Rmd`, which you just created.
+
+3. Re-build the package (`build()` or `Cmd/Ctrl + Shift + B`).
+
+4. Create a new R Markdown document using `File > New File > R Markdown...`. Then, find your template under the "From Template" tab. Open it.
+
+## Your Turn 3
+
+Let's create a usethis-style function to help set up analysis projects.
+
+1. In the folder `exercises/templates/`, there are three files: "packages.R", "analysis.R", and "report.Rmd". Open them up and take a look. Note that `report.Rmd` has some whisker variables in the YAML!
+
+2. Copy the files to `inst/templates` by running this code in the console: `fs::dir_copy("exercises/templates/", "inst/templates")`
+
+3. Open `R/create_analysis.R`. `create_analysis()` is going to help us set up the project directory, but we need to complete it. In lines 22, 23, and 25, add the template names: "packages.R", "analysis.R", and "report.Rmd".
+
+4. Remember that "report.Rmd" has data to whisk. We need to tell it what to pass to the final file. The `data` argument takes a named list`. For this argument, write: `list(author = author, title = title)`.
+
+5. Below `create_analysis()` is a helper function, `usethis::use_template()`, to create files from templates. Change the `package` argument to "avalanchr".
+
+6. Re-build your package and run `create_analysis()` in the console. If something went wrong, just delete the folder `avalanche_analysis` and try again.
+
+
+## Your Turn 4
+
+1. There is an app in the `examples/` folder called `shiny_reactor_report/`. It has two Shiny files: `ui.R` and `server.R`.
+
+2. Copy the shiny app to `inst` by running this code in the console: `fs::dir_copy("exercises/shiny_reactor_report/", "inst/shinyapps/shiny_reactor_report")`
+
+2. Run `use_package("shiny")`
+
+4. Create an R file with `use_r()` called "launch_app".
+
+5. Write a function to launch the app
+
+6. Add a roxygen skeleton and add a title and describe any parameters you used (if you used any)
+
+7. Re-build your package and launch the app with your function
+
+## Take-aways
+
+* 
+* 
+* 

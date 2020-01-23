@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^.*\.Rmd$
+^img$
+^.*\.css$
+^libs$
+^.*\.html$
+^r_packages_write_code_files$

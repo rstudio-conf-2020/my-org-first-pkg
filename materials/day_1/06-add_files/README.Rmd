@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# avalanchr
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/avalanchr)](https://CRAN.R-project.org/package=avalanchr)
+<!-- badges: end -->
+
+
+The goal of avalanchr is to streamline data workflows for the AVALANCHE data science team. This package will help you connect to our databases, easily construct summaries and visualizations, and create reports to understand our data better.
+
+## Installation
+
+avalanchr is not yet on CRAN. In the meantime, you can install from our GitHub page:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("malcolmbarrett/avalanchr")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(avalanchr)
+```
+
+The main database connection function is `db_con()`. We also have several wrappers to connect to the data.
+
+```{r}
+db_con("residents_per_sector")
+get_resident_data()
+```
+
+Plot functions begin with `plot_()`
+
+```{r}
+plot_donations()
+```

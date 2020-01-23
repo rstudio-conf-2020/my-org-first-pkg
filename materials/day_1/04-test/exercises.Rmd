@@ -1,0 +1,62 @@
+---
+title: "Test R Code"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+## Your Turn 1
+
+1. Use `use_test()` to create a new file. Call it "resident_connection"
+2. Change the test description (the first argument of `test_that()`)  to "connection is returning valid data"
+3. In the `test_that()` function, remove the default expectations. Replace them with this code:
+
+```{r}
+# `resident_data` is a tibble, isn't empty, and has the right columns
+resident_data <- get_resident_data()
+expect_is(resident_data, c("tbl_df", "tbl", "data.frame"))
+expect_gt(nrow(resident_data), 0)
+expect_named(resident_data, c("sector", "residents"))
+
+# `resident_data_dt` is a data.table
+resident_data_dt <- get_resident_data(data_table = TRUE)
+expect_is(resident_data_dt, c("data.table", "data.frame"))
+```
+
+4. Re-load your package.
+
+5. Press the "Run tests" button in RStudio (above the script pane) or run `test_file("tests/testthat/test-resident_connection.R")` in the console.
+
+
+## Your Turn 2
+
+1. Run all the tests in the package using `test()`. Fix the broken tests.
+Hint: The bug is in `R/summarize_data.R`
+2. Re-run the tests until all of them pass
+
+## Your Turn 3
+
+1. Run `check()` or `Cmd/Ctrl + Shift + E`
+2. Fix the warnings. Re-run `check()` until you get a clean bill of health.
+Hint: `segment_reactor_output()` is in `R/summarize_data.R`
+
+## Your Turn 4
+
+1. Both `test-count-donations.R` and `test-tables.R` use `donations_test_data`. Let's move it to a helper file. First, create the file with `fs::file_create("tests/testthat/helper-donations_data.R")`. Open it manually or use `edit_file()`.
+
+2. Move the code to create `donations_test_data` into `helper-donations_data.R`.
+
+3. Remove the `donations_test_data` code from the two test files.
+
+4. Run the tests.
+
+
+## Take-aways
+
+* testthat automates code testing for you
+* Test most functions, but focus on user-facing aspects of the code
+* When you find a bug, write a test to make sure you fixed it (and it doesn't show up again!)

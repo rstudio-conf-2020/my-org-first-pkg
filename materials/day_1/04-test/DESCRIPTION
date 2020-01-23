@@ -1,0 +1,31 @@
+Package: avalanchr
+Title: Tools for the Avalanche Data Science Team
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Malcolm",
+             family = "Barrett",
+             role = c("aut", "cre"),
+             email = "malcolm@avalanche.com"),
+      person(given = "Barret",
+             family = "Wallace",
+             role = "aut"),
+      person(given = "AVALANCHE",
+             role = "cph"))
+Description: A set of tools to use within the Avalance Data
+    Science team. This package contains functions for connecting to data
+    bases, R markdown templates, ggplot2 themes, and more.
+License: file LICENSE
+Imports: 
+    data.table,
+    ggplot2,
+    gt,
+    magrittr,
+    rlang,
+    tibble
+Suggests: 
+    testthat (>= 2.1.0)
+Encoding: UTF-8
+Language: es
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.0

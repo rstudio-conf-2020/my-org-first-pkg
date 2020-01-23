@@ -1,0 +1,43 @@
+---
+title: "Whole Game 2: Making a personal R package"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(devtools)
+library(usethis)
+```
+
+
+Create a personal R package for your own use. This type of package is great for functions and templates that you find yourself using over and over. 
+
+1. Create the package: `create_package()`
+
+A common theme for these packages is the person's initials and something about what it does, e.g. `Hmisc` and `cowplot`. (Those two personal packages ended up being quite a bit more popular than just the one original user!)
+
+2. Add some functions: `use_r()`. 
+
+Think about code you find yourself typing repeatedly. If you can't think of anything, a good place to start is a simple ggplot2 theme. 
+
+3. Run `check()`
+
+Fix anything that comes up, like using `use_mit_license()` to fix a missing LICENSE file.
+
+4. Add roxygen and document your function with `use_roxygen_md()` and `document()`
+
+Document your functions!
+
+5. Add tests with `use_test()`
+
+Remember, focus on external aspects of you code. 
+
+6. Add a README: `use_readme_rmd()`
+
+Describe the package and who it's for (you!)
+
+7. Add git and send your package to GitHub, or a similar service, with `use_git()` and `use_github()`.
+
+8. Keep adding things as you think of them! Write, document, build, test, and check often!
+

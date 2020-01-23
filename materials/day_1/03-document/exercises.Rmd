@@ -1,0 +1,44 @@
+---
+title: "Document R Code"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+## Your Turn 1
+
+1. Open the NAMESPACE file. What do you see?
+2. Let's add documentation. Run `use_roxygen_md()`
+3. Open `r/themes.R`. Insert a roxygen skeleton for `theme_avalanche()`.
+4. Change the title to "AVALANCHE ggplot2 themes"
+5. Hit Enter/Return twice after the title.  Make sure the new lines start with `#'`. Add this text: "Minimalistic ggplot themes for use on AVALANCHE reports."
+6. run `document()` or press `Ctrl/Cmd + Shift + D`. Read the help page for your function with `?theme_avalanche`.
+7. Finally, look at the NAMESPACE file again. What changed?
+
+
+## Your Turn 2 
+
+Let's keep working on the documentation for `theme_avalanche()`:
+
+1. Remove `@param base_size` and replace it with: @inheritParams ggplot2::theme_minimal
+2. For `@param ...`, add: Additional arguments passed to [ggplot2::theme_minimal()]
+3. For `@return`, add: a ggplot theme.
+4. For `@examples`, add two line breaks (make sure the new lines have roxygen comments!). Add this code: `ggplot2::qplot(iris$Sepal.Length) + theme_avalanche()`
+5. Rebuild the documentation and check the help page for `?theme_avalanche()`.
+
+## Your Turn 3
+
+1. In `R/themes.R`, join the documentation of `theme_avalanche_h()` and `theme_avalanche_v()` to `theme_avalanche()` by replacing the roxygen code for the first two functions with "#' @rdname theme_avalanche". 
+2. Make sure both functions still have an export tag, as well!
+3. Re-render the documentation and read the help page for `?theme_avalanche_h()`
+
+
+## Take-aways
+
+* roxygen2 lets you write your documentation in-line with your R code
+* `document()` or `Cmd/Ctrl + Shift + D` will build your documentation
+* Once you start using `@export`, you start controlling which functions the user sees!

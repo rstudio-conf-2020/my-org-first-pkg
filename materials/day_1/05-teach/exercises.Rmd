@@ -1,0 +1,38 @@
+---
+title: "Teach your package"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+
+## Your Turn 1: Discussion
+
+1. What do you do when you want to learn a new package?
+
+## Your Turn 2
+
+1. Open `vignettes/intro-to-avalanchr.Rmd`.
+2. Let's add some more content before we knit this vignette. Lines 27-29 have an R Markdown code chunk. On line 28, fill in the blank with this code: `db_con("residents_per_sector")`
+3. Let's also add some examples of the summarizing and plotting functions. On line 57, fill in the blank with `count_donations()`. On line 62, use `plot_donations()`
+4. Knit the vignette. If you're having trouble finding some of your functions, try re-loading or documenting and re-building.
+
+**Finish early? Try this stretch goal:**
+
+Create a new vignette with `use_vignette()`. Set the `name` argument to "data-dictionary" and `title` to "Data dictionary for avalanchr data sets". We'll set up the data dictionary in the next module!
+
+## Your Turn 3
+
+1. Run `use_readme_rmd()` to setup a README. Knit the file and take a look.
+2. Let's add some badges. Run `use_lifecycle_badge("experimental")` and `use_cran_badge()`. Then, re-knit.
+
+
+## Take-aways
+
+* Create new vignettes with `use_vignette()`. These R Markdown documents ship with your package and are great for broad introductions and complex topics.
+* Create a README with `use_readme_rmd()` or `use_readme_md()`. These are great for installation instructions, simple introductions, and details on contributing, as well as other technical information.
+* Add more examples for granular introductions where your user wants to know more about specific uses.

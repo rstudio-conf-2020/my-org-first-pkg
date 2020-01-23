@@ -1,0 +1,70 @@
+---
+title: "Setup R Packages"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(usethis)
+library(devtools)
+library(desc)
+```
+
+## Your Turn 1
+
+1. Load usethis and devtools if you haven't.
+
+2. Open the DESCRIPTION file and take a look. It's very generic!
+
+3. Run `edit_r_profile()`. Copy and paste this code into your R profile, but change it to your name and email. If you would like to add your ORCID ID see `?use_description` for an example for an example that includes that.
+
+**If you don't want to change your R profile, you can just run the code in the console without running `edit_r_profile()` or restarting**
+
+```{r}
+options(
+  usethis.description = list(
+    `Authors@R` = 'person("First", "Last", email = "email@example.com", role = c("aut", "cre"))',
+    License = "MIT + file LICENSE",
+    Language =  "es"
+  )
+)
+```
+
+4. Then, restart your R session (Session > Restart R). 
+
+5. When you've restarted, run `use_description()` to replace the DESCRIPTION file.
+
+6. Open the DESCRIPTION file and take a look around.
+
+**Finish early? Try this stretch goal:**
+
+Read the help page for `use_usethis()`. If there are any of these that you'd like available in all interactive sessions, run the function to get the related code and add it to your R Profile. Then, restart your R session.
+
+## Your Turn 2
+
+1. Add a new author to `avalanchr` using `desc::desc_add_author()`. Set `given` to "Barret", `family` to "Wallace", and `role` to "aut". 
+
+2. In DESCRIPTION, change the title to "Tools for the Avalanche Data Science Team"
+
+3. Change the Description field to "A set of tools to use within the Avalance Data Science team. This package contains functions for connecting to data bases, R markdown templates, ggplot2 themes, and more."
+
+4. Run `use_tidy_description()` to clean up the file. 
+
+## Your Turn 3
+
+1. Run `use_mit_license("AVALANCHE")`. What changed?
+
+**Finish early? Try this stretch goal:**
+
+Add "AVALANCHE" as an author with the role of copyright holder.
+
+Change the license to use the proprietary license above.
+
+
+## Take-aways
+
+* devtools and usethis make your life a lot easier as a package developer!
+* Use `create_package()` to create a new R package
+* Include DESCRIPTION defaults in your R profile (`edit_r_profile()`) to auto-populate your information
+* `use_*_license()` or use a proprietary license to create an appropriate license for your package
