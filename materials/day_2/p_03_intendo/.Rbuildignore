@@ -1,3 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^slides\.pdf$
+^exercises$
 ^README\.Rmd$
