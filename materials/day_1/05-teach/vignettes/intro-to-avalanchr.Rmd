@@ -1,0 +1,68 @@
+---
+title: "An Introduction to avalanchr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{An Introduction to avalanchr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# avalanchr
+
+avalanchr is an R package to streamline data workflows for the AVALANCHE data science team. This package will help you connect to our databases, easily construct summaries and visualizations, and create reports to understand our data better
+
+```{r setup}
+library(avalanchr)
+```
+
+The main database connection function is `db_con()`
+
+```{r}
+# fill me in
+```
+
+
+However, we also have several wrappers to connect to the data:
+
+```{r}
+get_resident_data()
+get_donation_data()
+```
+
+Each of these functions has a `data_table` argument. If you prefer working with data.table, setting this argument to `TRUE` will return a `data.table` instad of `tibble.
+
+```{r}
+get_resident_data(data_table = TRUE)
+```
+
+Confidentially, avalanchr also helps us, ahem, acquire certain Shinra data about reactor output.
+
+```{r}
+reactor_output <- hack_shinra_data()
+reactor_output
+```
+
+# Summarizing and plotting data
+
+avalanchr includes functionality to quickly summarize and visualize several key tasks. Two examples are `count_donations()` and `plot_donations()`:
+
+```{r}
+# fill me in
+```
+
+
+```{r}
+# fill me in
+```
+
+
+# Using R Markdown templates
+
+avalanchr comes with an R Markdown template to help facilitate data reports. In RStudio, simply go to `File > New File> R Markdown...`. Then, select "AVALANCHE report" from the `From Template` tab.

@@ -1,0 +1,115 @@
+---
+title: "Write R Code"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+## Your Turn 1
+
+1. Re-write this ggplot2 theme as a function. Call it `theme_avalanche_h()`.
+
+```{r}
+library(ggplot2)
+
+theme_minimal(base_size = 14) + 
+  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank())
+```
+
+2. Run this code to test that your function works
+
+```{r}
+residents_per_sector <- 
+  data.frame(
+    sector = as.factor(1:8),
+    residents = c(1000, 2034, 4594, 2304, 8093, 1200, 300, 2398)
+  )
+
+ggplot(residents_per_sector, aes(forcats::fct_reorder(sector, residents), residents)) +
+  geom_col() + 
+  coord_flip() + 
+  xlab("sector") + 
+  theme_avalanche_h()
+```
+
+## Your Turn 2
+
+1. Create a new file with `use_r()` called "db_con"
+2. Put this function in the file and save it:
+
+```{r}
+db_con <- function(dbname = "residents_per_sector") {
+  dbname <- match.arg(dbname)
+  # We will set up real database connections later. For now, we'll just return
+  # some hard-coded data instead.
+  data.frame(
+    sector = as.factor(1:8),
+    residents = c(1000, 2034, 4594, 2304, 8093, 1200, 300, 2398)
+  )
+}
+```
+
+3. Use `load_all()` to load the package function.
+4. Run this code to make sure it works:
+
+
+```{r}
+ggplot(
+  db_con(), 
+  aes(forcats::fct_reorder(sector, residents), residents)
+) +
+  geom_col() + 
+  coord_flip() + 
+  xlab("sector") 
+```
+
+
+## Your Turn 3
+
+1. Fix the code in `R/themes.R` to use `ggplot2::` instead of `library(ggplot2)`
+2. Run `use_package("ggplot")` to add ggplot2 to `Imports`
+3. Re-load the package (`Cmd/Ctrl+Shift+L`) and run this code to make sure it works:
+
+```{r}
+ggplot(
+  db_con(), 
+  aes(forcats::fct_reorder(sector, residents), residents)
+) +
+  geom_col() + 
+  coord_flip() + 
+  xlab("sector") +
+  theme_avalanche()
+```
+
+
+## Your Turn 4
+
+1. We need roxygen2 for this exercise. We'll learn more about it in the next module. For now, just run `use_roxygen_md()`
+2. Run `use_tibble()` and `use_data_table()`
+3. In `R/get_data.R`, edit the function to be able to return a data table: Add the argument `data_table = FALSE`. If `data_table` is `TRUE`, convert the data frame with `data.table::as.data.table()`
+4. Run this code to make sure it works:
+
+```{r}
+res_data <- get_resident_data(data_table = TRUE)
+
+stopifnot(data.table::is.data.table(res_data))
+
+res_data
+```
+
+---
+
+**Finish early? Try this stretch goal:**
+
+Run `use_pipe()` to add the magrittr pipe to your package. What changed?
+
+## Take-aways
+
+* Add R files with `use_r()`; load the functions with `load_all()`; build the package with `build()`
+* Import packages with `use_package()` and use the format `pkg::fun()` to call functions from other packages
+* usethis has several functions for setting up common or complicated packages that you might want to include, such as tibbles and data tables, the pipe, or Rcpp and friends.
+
