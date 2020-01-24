@@ -6,7 +6,8 @@ output:
 ---
 
 ```{r setup}
-library(tidyverse)
+library(devtools)
+library(usethis)
 ```
 
 

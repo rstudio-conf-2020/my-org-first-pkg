@@ -7,3 +7,4 @@
 ^.*\.html$
 ^r_packages_write_code_files$
 ^README\.Rmd$
+^.*\.pdf$

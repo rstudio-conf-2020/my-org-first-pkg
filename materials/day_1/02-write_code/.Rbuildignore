@@ -6,3 +6,4 @@
 ^libs$
 ^.*\.html$
 ^LICENSE\.md$
+^.*\.pdf$

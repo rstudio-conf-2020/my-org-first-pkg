@@ -1,3 +1,9 @@
-^mbmisc2\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
-mbmisc2_files
+^.*\.Rmd$
+^img$
+^.*\.css$
+^libs$
+^.*\.html$
+^mbmisc2_files$
+^.*\.pdf$
