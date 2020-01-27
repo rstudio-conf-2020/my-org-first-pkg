@@ -19,11 +19,13 @@ Imports:
     data.table,
     dplyr,
     forcats,
+    fs,
     ggplot2,
     gt,
     magrittr,
     rlang,
-    tibble
+    tibble,
+    usethis
 Suggests: 
     knitr,
     rmarkdown,

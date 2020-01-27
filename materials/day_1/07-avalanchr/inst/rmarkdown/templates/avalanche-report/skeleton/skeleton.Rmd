@@ -1,0 +1,42 @@
+---
+title: "AVALANCHE Data Overview"
+output: html_document
+params:
+  reactor_num: 7
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(avalanchr)
+```
+
+This report is an overview of AVALANCHE data. 
+
+## Data Connections
+
+```{r}
+resident_data <- get_resident_data()
+donation_data <- get_donation_data()
+reactor_data <- hack_shinra_data()
+```
+
+## Data Summaries
+
+```{r}
+segment_reactor_output(reactor_num = params$reactor_num)
+```
+
+```{r}
+count_donations()
+```
+
+## Data Visualization
+
+```{r}
+plot_donations()
+```
+
+```{r}
+plot_resident_counts()
+```
+

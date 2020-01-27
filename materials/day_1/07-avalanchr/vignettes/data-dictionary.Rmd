@@ -1,0 +1,26 @@
+---
+title: "Data dictionary for avalanchr data sets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data dictionary for avalanchr data sets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# avalanchr Data Dictionary
+
+```{r setup}
+library(avalanchr)
+```
+
+```{r}
+# fill me in
+```
+

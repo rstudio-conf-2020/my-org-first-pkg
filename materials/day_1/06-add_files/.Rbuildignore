@@ -1,9 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^.*\.Rmd$
-^img$
-^.*\.css$
-^libs$
-^.*\.html$
-^r_packages_write_code_files$
+^avalanchr\.Rcheck$
+^avalanchr.*\.tar\.gz$
+^avalanchr.*\.tgz$
+^exercises$
+^exercises\.Rmd$
+^slides\.pdf$
 ^README\.Rmd$
